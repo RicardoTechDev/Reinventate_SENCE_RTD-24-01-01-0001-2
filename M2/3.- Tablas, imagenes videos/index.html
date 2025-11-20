@@ -1,0 +1,79 @@
+<!DOCTYPE html><!-- Nos indica que usamos HTML5 -->
+<html lang="en"><!-- Declara el inicio del html y con el atributo lang indica el idioma -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Tablas, imagenes y video</h1>
+        <nav>
+            <ul>
+            <li><a href="home.html"></a></li>
+            <li><a href="contacto.html"></a></li>
+            <li><a href="#users">Tabla Usuarios</a></li>
+            <li><a href="#img">Imagenes</a></li>
+            <li><a href="#videos">Videos</a></li>
+        </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="users">
+            <h2>Tabla Usuarios</h2>
+            <table><!-- Etiqueta para declarar una tabla -->
+                <!-- <colgroup>
+                    <col span="4" style="background-color:red">
+                    <col style="background-color:yellow">
+                </colgroup> -->
+                <thead><!-- Encabezados de la tabla -->
+                    <tr><!-- TableRow -> Fila -->
+                        <th>ID</th><!-- Columna 1 -->
+                        <th>Nombre</th><!-- Columna 2 -->
+                        <th>Apellido</th><!-- Columna 3 -->
+                        <th>Rol</th><!-- Columna 4 -->
+                    </tr>
+                </thead>
+                <tbody><!-- Cuerpo con la información de la tabla -->
+                    <tr><!-- Columna -->
+                        <td>1</td>
+                        <td>Elena</td>
+                        <td>De Troya</td>
+                        <td>Administrador</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Juana</td>
+                        <td>De Arco</td>
+                        <td>Asistente</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr><!-- TableRow -> Fila -->
+                        <th>ID</th><!-- Columna 1 -->
+                        <th>Nombre</th><!-- Columna 2 -->
+                        <th>Apellido</th><!-- Columna 3 -->
+                        <th>Rol</th><!-- Columna 4 -->
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+        <section id="img">
+            <h2>Imagenes</h2>
+            <img src="assets/img/mitos-realidades-perritos-Blog03.jpg" alt="Mitos realidades perritos" width="350">
+            <br>
+            <img src="assets/img/perritos-primeros-auxilios.jpg" alt="perritos primeros auxilios" width="350">
+            <br>
+            <img src="https://images.squarespace-cdn.com/content/v1/57a2aeb1ff7c509ef76566c9/1580174975544-U5MTHMIVJKK6G8XBALLQ/laula-co-pdKPFBysSfA-unsplash.jpg" alt="Imagen de internet" width="350">
+        </section>
+        <section id="videos">
+            <h2>Videos</h2>
+            <video src="assets/video/mov_bbb.mp4" controls autoplay loop muted></video>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7bhKI0Mw6Yk?si=swOOrNsAXxvhlqc5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
