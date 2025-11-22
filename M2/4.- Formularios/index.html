@@ -43,6 +43,78 @@
             <p class="pinyon-script-regular">Hola Mundo</p>
             <p class="londrina-shadow-regular">Hola mundo 2</p>
         </section> 
+        <section>
+            <!-- Métodos Comunes:
+
+            GET:
+            - El método GET envía los datos del formulario como parte de la URL.
+            - Los datos son visibles en la barra de direcciones del navegador.
+            - Limita la cantidad de datos que se pueden enviar (generalmente unos 2048 caracteres, dependiendo del navegador).
+            - Es adecuado para obtener datos del servidor (como buscar información, consultar registros, etc.).
+            - No recomendado para contraseñas o datos sensibles, ya que los datos serán visibles en la URL.
+            - No realiza cambios en el servidor, es decir, es idempotente (lo que significa que el mismo formulario puede enviarse múltiples veces sin modificar los resultados). 
+
+
+            POST:
+            - El método POST envía los datos del formulario en el cuerpo de la solicitud HTTP (no en la URL).
+            - Los datos no son visibles en la barra de direcciones.
+            - No tiene una limitación estricta en cuanto a la cantidad de datos que puede enviar (aunque los servidores pueden tener sus propios límites configurados).
+            - Es adecuado para enviar datos sensibles o grandes, como contraseñas, formularios de registro, o cualquier tipo de dato que deba permanecer privado.
+            - Realiza cambios en el servidor, por lo que es más seguro para acciones que impliquen modificaciones, como crear o actualizar recursos.
+            - Se utiliza en operaciones que no deberían ser idempotentes (por ejemplo, enviar un formulario de compra). -->
+
+            <div style="background-color: aqua;">
+                Hola
+            </div>
+
+            <form action="#" method="POST">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" mane="nombre" required>
+                </div>
+                <br>
+                <div>
+                    <label for="correo">correo</label>
+                    <input id="correo" type="email" mane="correo" required>
+                </div>
+                
+                <div>
+                    <label for="telefono">telefono</label>
+                    <input id="telefono" type="tel" mane="telefono" required>
+                </div>
+                
+                
+                <label for="color">color</label>
+                <input id="color" type="color" mane="color" required>
+                
+                <label for="fecha">fecha</label>
+                <input mane="fecha"  type="date" id="fecha" required >
+                
+                <label for="fecha_hora">fecha_hora</label>
+                <input mane="fecha_hora"  type="datetime-local" id="fecha_hora" required >
+                
+                <label for="subir_archivo">subir_archivo</label>
+                <input mane="subir_archivo" type="file" id="subir_archivo" required>
+                <input mane="id_usuario" type="hidden" id="id_usuario" value="12584" >
+                
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="radio" id="css" name="fav_language" value="CSS">
+                <label for="css">CSS</label><br>
+                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+                
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                <label for="vehicle2"> I have a car</label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                <label for="vehicle3"> I have a boat</label>
+                
+                <button type="submit">Enviar</button>
+            
+            </form>
+        </section>
     </main>
     <footer>
 
