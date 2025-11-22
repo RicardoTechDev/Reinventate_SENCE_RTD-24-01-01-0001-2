@@ -1,36 +1,37 @@
 <!DOCTYPE html><!-- Nos indica que usamos HTML5 -->
-<html lang="en"><!-- Declara el inicio del html y con el atributo lang indica el idioma -->
+<html lang="es"><!-- Declara el inicio del html y con el atributo lang indica el idioma -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="icon" type=image/x-icon" href="assets/img/piton.ico">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine&effect=fire-animation">
+    <link rel="icon" type=image/x-icon" href="assets/img/piton.ico"><!-- Establece el icono del sitio web -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Enlace para conectar con Google Fonts y utilizar la fuente 'Tangerine' con un efecto especial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!-- Establece la conexión con el servidor de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Conexión optimizada para la carga de la fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Pinyon+Script&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
 
+    <!-- Importa la fuente 'Tangerine' y el efecto 'fire-animation' para el encabezado -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine&effect=fire-animation">
+
     <style>
-      #titulo{
-        font-family: 'Tangerine', serif;
-        font-size: 48px;
-      }
-      .pinyon-script-regular {
-        font-family: "Pinyon Script", cursive;
-        font-weight: 400;
-        font-style: normal;
-    }
+        /*Estilos de la fuentes insertadas desde Google*/
+        #titulo{
+            font-family: 'Tangerine', serif;/* Aplica la fuente 'Tangerine' a este elemento */
+            font-size: 48px;/* Establece el tamaño de la fuente a 50px */
+        }
+        .pinyon-script-regular {
+            font-family: "Pinyon Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-    .londrina-shadow-regular {
-  font-family: "Londrina Shadow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
+        .londrina-shadow-regular {
+            font-family: "Londrina Shadow", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
     </style>
 
 </head>
@@ -44,6 +45,10 @@
             <p class="londrina-shadow-regular">Hola mundo 2</p>
         </section> 
         <section>
+            <div style="background-color: aqua;">
+                Hola
+            </div>
+            <br><br>
             <!-- Métodos Comunes:
 
             GET:
@@ -63,14 +68,22 @@
             - Realiza cambios en el servidor, por lo que es más seguro para acciones que impliquen modificaciones, como crear o actualizar recursos.
             - Se utiliza en operaciones que no deberían ser idempotentes (por ejemplo, enviar un formulario de compra). -->
 
-            <div style="background-color: aqua;">
-                Hola
-            </div>
-
             <form action="#" method="POST">
                 <div>
+                    <!-- El atributo for se utiliza para asociar una etiqueta <label> con un campo de entrada 
+                        (como <input>, <select>, <textarea>, etc.). 
+                        Esto es muy útil para mejorar la accesibilidad de la página 
+                        
+                        El atributo for hace referencia al id del campo con el que está asociado el <label>.
+                        -->
                     <label for="nombre">Nombre</label>
+                    <!-- El atributo name se utiliza para identificar el campo de entrada cuando 
+                    el formulario se envía al servidor. Los valores de los campos del formulario 
+                    se enviarán con los nombres especificados en el atributo name. 
+                    El atributo name es esencial para que los datos sean enviados 
+                    correctamente al backend (servidor). -->
                     <input id="nombre" type="text" mane="nombre" required>
+                    <!-- 'required' indica que este campo debe ser completado para enviar el formulario -->
                 </div>
                 <br>
                 <div>
