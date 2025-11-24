@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* 1.- Selectores de tipo */
+        h3 { /* estos estilos afectan a todos los h3 de mi web */
+            color: blue;
+        }
+        /* body {
+            background-color: black;
+            color: white;/*Texto de color blanco} */
+
+        /* 2.- Selectores de clase, se crean con un . al inicio */
+        .subrayado {
+            text-decoration: underline;
+            color: brown;
+        }
+
+        /* 3.-  Selectores de id, se crean con un # al inicio */
+        #titulo-principal {
+            color: blueviolet;
+            font-size: 25px;
+            text-align: center;
+        }
+        #btn-ingresar {
+            background-color: chocolate;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <section>
+            <h1 style="color: chartreuse; 
+    text-align: center; 
+    background-color: black; 
+    text-decoration-line: overline; 
+    text-decoration-line: line-through;">Hola mundo!!</h1>
+    <h2 style="color: #3f51b5;">Chao mundo!!</h2>
+    <h3>Título h3 1</h3>
+    <h3>Título h3 2</h3>
+    <h3>Título h3 3</h3>
+
+    <p style=" text-align: center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Donec rutrum, ante id imperdiet pellentesque, mauris dolor 
+        dignissim ligula, ut dapibus sem libero ut urna. Suspendisse 
+        bibendum erat ac tortor dictum fringilla. Sed ornare mauris 
+        consectetur maximus molestie. Aliquam erat volutpat. Phasellus 
+        volutpat felis dui, ut convallis neque porta quis. Praesent convallis 
+        varius nulla, nec rhoncus justo interdum eget. Mauris condimentum nunc 
+        vitae mauris elementum mattis. Phasellus fermentum velit sit amet magna 
+        fringilla laoreet. Donec eget risus quis eros dapibus laoreet. Praesent 
+        dapibus libero est, id rhoncus ligula semper at.</p>
+        </section>
+        <section>
+            <h5 class="subrayado">Subtitulo</h5>
+            <p>
+                Lorem ipsum dolor sit amet, <span class="subrayado">consectetur</span> adipiscing elit. 
+                Donec rutrum, ante id imperdiet pellentesque, mauris dolor 
+                dignissim ligula, ut dapibus sem libero ut urna. Suspendisse 
+                bibendum erat ac tortor dictum fringilla.
+            </p>
+            <h3 id="titulo-principal">
+                Lorem ipsum dolo
+            </h3>
+            <button id="btn-ingresar">
+                Ingresar
+            </button>
+        </section>
+        <section>
+            <div class="caja">
+                <p>
+                    Lorem ipsum dolor sit amet, <span class="subrayado">consectetur</span> adipiscing elit. 
+                    Donec rutrum, ante id imperdiet pellentesque, mauris dolor 
+                    dignissim ligula, ut dapibus sem libero ut urna. Suspendisse 
+                    bibendum erat ac tortor dictum fringilla.
+                </p>
+            </div>
+        </section>
+    </main>
+    
+
+</body>
+</html>
