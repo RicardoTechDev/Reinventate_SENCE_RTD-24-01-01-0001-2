@@ -1,13 +1,71 @@
 body {
-    background-color: black;
+    background: #3F5EFB;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 19%, rgba(252, 70, 107, 1) 100%);
     color: white;
 }
-
+.importante {
+    color: crimson;
+    font-weight: bold;
+}
 .caja {
     background-color: cyan;
     padding: 20px;
-    margin-top: 30px;
     border-color: blue;
     border-radius: 10px;
     border-style: solid;
+}
+
+.mt-s {
+    margin-top: 10px;
+}
+
+.mt-m {
+    margin-top: 20px;
+}
+
+.mt-l {
+    margin-top: 30px;
+}
+
+.mb-s {
+    margin-bottom: 10px;
+}
+
+.mb-m {
+    margin-bottom: 20px;
+}
+
+.mb-l {
+    margin-bottom: 30px;
+}
+
+.btn-rojo{
+    background-color: crimson;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    border: none;
+    box-shadow: 2px 2px rgb(205, 10, 62);
+}
+
+.btn-verde{
+    background-color: green;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    border: none;
+}
+
+.btn-azul{
+    background-color: blue;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+    color: white;
+    border: none;
 }
