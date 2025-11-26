@@ -1,0 +1,94 @@
+/*Reset del css*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*-------------MODELO DE CAJA-------------------*/
+.caja{
+    background-color: blue;/* Fondo del contenido */
+    margin: 0px 0px 10px 0px;/* Margen exterior */
+    width: 200px; /* Ancho del contenido */
+    height: 300px; /* Alto del contenido */
+    border: 10px solid #10e67e; /* Borde */
+    padding: 10px;/* Relleno dentro del contenido */
+}
+
+.contenido {
+    background-color: #ffffff;  /* Fondo del contenido */
+    /*height: 100%;*/  /* Ocupa toda la altura disponible */
+    border: 2px dashed #f39c12;  /* Bordes del contenido */
+    padding: 10px;  /* Relleno dentro del contenido */
+}
+
+/*-------------------PROPIEDAD DISPLAY-------------------*/
+/* 
+   Clase para un div que demostrará el comportamiento de display: inline-block
+   Este tipo de display permite:
+   - Que el elemento se comporte como un bloque (respeta ancho/alto).
+   - Pero se alinee en línea junto a otros elementos (como textos).
+*/
+.div-display {
+    background-color: brown; /* Color de fondo para identificar visualmente el div */
+    width: 200px;            /* Ancho del contenedor */
+    height: 200px;           /* Alto del contenedor */
+    border: 2px solid;       /* Borde para ver claramente los límites de la caja */
+    display: inline-block;   /* Permite que varios div se ubiquen uno al lado del otro */
+}
+
+/*
+   Clase usada para los elementos del menú dentro de un <ul>.
+   display: inline hace que los <li>:
+   - NO comiencen en una nueva línea (quedan en horizontal)
+   - Solo ocupen el espacio del contenido, como un texto.
+*/
+.menu-item {
+    display: inline;        /* Convierte cada <li> en un elemento en línea */
+    margin: 0px 15px;       /* Agrega espacio horizontal entre los ítems del menú */
+}
+
+/*-------------------TARJETAS----------------------*/
+/* 
+   Clase base de la tarjeta.
+   Esta clase define el estilo general del contenedor que envuelve
+   la imagen, el título, el texto y el botón.
+*/
+.tarjeta{
+    width: 250px;                 /* Ancho fijo de la tarjeta */
+    border: 1px solid #f39c12;    /* Borde de color para definir los límites */
+    border-radius: 10px;          /* Esquinas redondeadas para un diseño más suave */
+    text-align: center;           /* Centra todo el contenido interno (texto, imagen, botón) */
+    background-color: rgb(59, 58, 58); /* Color de fondo oscuro para destacar el contenido */
+    display: inline-block;        /* Permite poner varias tarjetas una al lado de la otra */
+    padding: 15px;                /* Espacio interior entre el contenido y el borde */
+    margin: 15px;                 /* Espacio externo para separar tarjetas entre sí */
+}
+
+/*
+   Estilo aplicado a la imagen dentro de una tarjeta.
+   Al usar .tarjeta img se afecta solo a imágenes que estén dentro de .tarjeta.
+*/
+.tarjeta img {
+    width: 200px;                 /* Ajusta la imagen para que tenga un ancho uniforme */
+}
+
+/*
+   Estilo del título dentro de la tarjeta.
+   Se usa un color llamativo para que destaque en el diseño oscuro.
+*/
+.tarjeta-titulo{
+    font-size: 20px;              /* Tamaño de letra mayor para destacar el título */
+    font-weight: bold;            /* Negrita para reforzar la importancia */
+    margin: 10px 0px;             /* Espacio arriba y abajo del título */
+    color: #10e67e;               /* Color verde brillante para resaltar */
+}
+
+/*
+   Estilo del párrafo de descripción dentro de la tarjeta.
+*/
+.tarjeta-texto {
+    font-size: 15px;              /* Tamaño del texto del párrafo */
+    color: #ffffff;               /* Texto en blanco para buen contraste con fondo oscuro */
+    margin-bottom: 15px;          /* Espacio inferior para separar del botón */
+}
