@@ -43,10 +43,35 @@
    - NO comiencen en una nueva línea (quedan en horizontal)
    - Solo ocupen el espacio del contenido, como un texto.
 */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+
 .menu-item {
     display: inline;        /* Convierte cada <li> en un elemento en línea */
     margin: 0px 15px;       /* Agrega espacio horizontal entre los ítems del menú */
+    float: left;
 }
+
+.menu-enlace {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu-enlace:hover {
+    background-color: #111111;
+}
+
+
+
 
 /*-------------------TARJETAS----------------------*/
 /* 
