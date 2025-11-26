@@ -92,3 +92,47 @@
     color: #ffffff;               /* Texto en blanco para buen contraste con fondo oscuro */
     margin-bottom: 15px;          /* Espacio inferior para separar del botón */
 }
+
+/*-------------BOTONES---------------*/
+.btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.btn-verde {
+    background-color: #03c065;
+}
+
+.btn-rojo {
+    background-color: brown;
+}
+
+.btn-azul {
+    background-color: blue;
+}
+
+.btn-naranja {
+    background-color: orange;
+}
+
+.btn-verde:hover {
+    background-color: #1df78e;
+    box-shadow:0 5px 5px 0 rgb(168, 247, 223)
+}
+
+.btn-rojo:hover {
+    background-color: rgb(220, 63, 63);
+    box-shadow:0 5px 5px 0 rgb(252, 134, 108)
+}
+
+.btn-azul:hover {
+    background-color: rgb(41, 41, 243);
+    box-shadow:0 5px 5px 0 rgb(87, 167, 254)
+}
+
+.btn-naranja:hover {
+    background-color: rgb(251, 184, 61);
+    box-shadow:0 5px 5px 0 rgb(247, 209, 144)
+}
