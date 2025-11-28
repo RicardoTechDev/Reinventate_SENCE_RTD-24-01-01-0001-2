@@ -1,0 +1,146 @@
+/* 
+   El asterisco (*) selecciona TODOS los elementos de la página.
+   Aquí estamos quitando los márgenes, rellenos y bordes por defecto
+   que trae cada navegador.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* 
+   Estilos generales del cuerpo de la página (body).
+   - margin:0 → elimina márgenes del navegador.
+   - background → color de fondo.
+   - height y width ocupan el 100% de la pantalla del usuario.
+*/
+body {
+    margin: 0;
+    background: #8dd6d8;
+    height: 100vh; /* vh = alto del navegador */
+    width: 100vw; /* vw = ancho del navegador */
+}
+
+/* 
+   .container es el contenedor general del layout.
+   - display:flex → activa Flexbox.
+   - flex-direction:column → acomoda las filas una debajo de otra.
+   - height y width → ocupa toda la pantalla.
+   - padding y gap → separación interna y entre elementos.
+*/
+/* El layout ocupa toda la pantalla */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;     /* 100% del alto */
+    width: 100vw;      /* 100% del ancho */
+    padding: 10px;
+    gap: 10px;
+}
+
+/* ---------------------------------------------------- */
+/* Fila superior (dos cajas rojas)                      */
+/* flex:1 significa que esta fila ocupará 1 parte del   */
+/* espacio disponible vertical en relación a las demás. */
+/* ---------------------------------------------------- */
+.fila-superior {
+    display: flex;  /* acomoda los bloques en una fila */
+    gap: 10px;      /*Crea un espacio de 10 píxeles entre los elementos hijos dentro de un contenedor que usa Flexbox */
+    flex: 1;        /* ocupa 1 parte del alto total */
+}
+
+/* 
+   Cada bloque dentro de la fila superior:
+   - flex:1 → cada caja ocupa el mismo ancho.
+   - background rojo.
+*/
+.fila-superior .bloque {
+    flex: 1;
+    background: #ff5959;
+}
+
+/* ---------------------------------------------------- */
+/* Fila central (la más grande)                         */
+/* Contiene un bloque amarillo a la izquierda y         */
+/* dos morados apilados a la derecha.                   */
+/* flex:3 significa que ocupa 3 veces la altura         */
+/* que tienen las filas superior e inferior.            */
+/* ---------------------------------------------------- */
+.fila-central {
+    display: flex;
+    gap: 10px;
+    flex: 3;     /* 3 veces más grande que las otras filas */
+}
+
+/* 
+   Bloque amarillo:
+   - flex:2 → es más ancho que el lado derecho.
+*/
+.amarillo {
+    background: #ffb432;
+    flex: 2;
+}
+
+/* 
+   Columna derecha dentro de la fila central:
+   - display:flex + flex-direction:column 
+     → acomoda LOS 2 morados uno encima de otro.
+   - flex:1 → es más estrecha que el amarillo.
+*/
+.columna-derecha {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+/* 
+   Los bloques morados de la derecha:
+   - flex:1 → ambos ocupan la mitad del alto
+     de la columna derecha.
+*/
+.morado {
+    background: #8a007a;
+    flex: 1;
+}
+
+/* ---------------------------------------------------- */
+/* Fila inferior (tres cajas celestes)                  */
+/* flex:1 → ocupa 1 parte del alto total, igual que la  */
+/* fila superior.                                       */
+/* ---------------------------------------------------- */
+.fila-inferior {
+    display: flex;   /* acomoda las cajas en fila */
+    gap: 10px;
+    flex: 1;
+}
+
+/* 
+   Cajas celestes:
+   - flex:1 → las 3 cajas ocupan el mismo ancho.
+*/
+.celeste {
+    background: #006b80;
+    flex: 1;
+}
+
+/* 
+   Clase usada para dar bordes redondeados opcionalmente
+   a cualquier bloque que tenga la clase .bloque
+*/
+.bloque {
+    border-radius: 4px;
+}
+
+/* 
+   Estilo para el contenido interno de las cajas:
+   - tamaño de letra grande
+   - color blanco
+   - texto centrado
+*/
+.box {
+    font-size: 30px;
+    color: aliceblue;
+    text-align: center;
+}
