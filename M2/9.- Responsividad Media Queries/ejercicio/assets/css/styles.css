@@ -117,3 +117,18 @@ header {
     background-color: rgb(251, 184, 61);
     box-shadow:0 5px 5px 0 rgb(247, 209, 144)
 }
+
+/*========= MEDIA QUERY =========*/
+@media (min-width: 768px) AND (max-width: 1024px){
+    /*Lo que va a cambiar en el punto de quiebre*/
+    .tarjeta{
+        width: 30%;
+    }
+}
+
+@media (max-width: 767px){
+    .tarjeta{
+        width: 100%;
+        text-align: center;
+    }
+}
