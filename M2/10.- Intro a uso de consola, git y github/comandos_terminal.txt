@@ -1,0 +1,27 @@
+cd      -> Nos permite navegar. (.. nos permite ir a una carpeta arriba/padre)
+ls      -> Nos dice qué archivos y carpetas se encuentran en mi locación actual
+ls -l 	-> COMPLETA
+
+pwd 	-> Nos dice en dónde estamos
+
+mkdir	-> Creamos una nueva carpeta/directorio
+mkdir prueba
+
+touch 	nombre_archivo.extención -> Nos permite crear un archivo
+touch hola.txt
+
+mv archivo carpeta -> Movemos un archivo de lugar 
+mkdir prueba_2
+mv prueba/hola.txt prueba_2
+
+mv *.txt documentos/
+mv proyecto/ backup/
+
+
+rm 	-> Eliminar archivo
+rm hola.txt
+
+
+rm -rf	-> Eliminar archivo o carpeta (no vacío)
+
+rmdir	-> Eliminar carpeta vacía
