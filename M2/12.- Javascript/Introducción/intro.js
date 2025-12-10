@@ -96,3 +96,111 @@ console.log(nombreCompleto);
 let nombreDos = "Juan";
 let mensaje = `Hola, ${nombre}!`;
 console.log(mensaje);
+
+//============ Expresiones aritméticas =============
+let x = 5;
+let y = 3;
+
+let suma = x + y;
+console.log("La suma de x más y es igual a: " + suma);
+
+let resta = x - y
+console.log("La resta de x menos y es igual a: " + resta);
+
+let multiplicacion = x * y;
+console.log("La multiplicación de x por y es igual a: " + multiplicacion);
+
+let division = x/y;
+console.log("La división de x por y es igual a: " + division);
+
+let resto = x % y;
+console.log("Resto es igual a: " + resto);
+
+let exponente = x ** y;
+console.log("Exponente es igual a: " + exponente);
+
+//============ Operadores de incremento y decremento
+/* 
+En JavaScript, existen operadores especiales que
+permiten aumentar (++) o disminuir (--) el valor de una
+variable de forma abreviada, en lugar de escribir una
+suma o resta manualmente.
+Estos operadores son muy útiles en bucles y en
+situaciones donde es necesario modificar el valor de
+una variable de manera sencilla.
+*/
+let variable1 = 10;
+console.log(variable1);
+variable1 = variable1 + 1;
+console.log(variable1);
+
+variable1++;//Incremento en 1
+console.log(variable1);//Tiene un valor de 12
+
+variable1 = variable1 - 1;
+console.log(variable1);//Tiene un valor de 11
+
+variable1--;
+console.log(variable1);
+
+//================ Operadores de asignación ========
+let z = 10;
+
+z += 5;
+console.log(z);
+
+z -= 3;
+console.log(z);
+
+z *= 2;
+console.log(z);
+
+z /= 4;
+console.log(z);
+
+z %= 2;
+console.log(z);
+
+
+//============== Operadores lógicos =========
+let v1 = 5;
+let v2 = "5";
+
+/* 
+Igualdad (==):
+Compara si dos valores son iguales, sin tener en
+cuenta el tipo de dato.
+*/
+console.log(v1 == v2);
+
+/* 
+Igualdad estricta (===):
+Compara si dos valores son iguales, teniendo en
+cuenta tanto el valor como el tipo de dato.
+Devuelve true si son iguales en valor y tipo, y false
+si no lo son.
+*/
+console.log( v1 === v2);
+
+
+/* 
+Desigualdad (!= o !==):
+Compara si dos valores no son iguales. Devuelve
+true si son diferentes y false si son iguales.
+El operador !== también verifica el tipo de dato.
+Tanto la comparación x != y como x !== y devuelven
+true porque los valores son diferentes.
+*/
+let v3 = 10;//int
+let v4 = "10";//string
+
+console.log(v3 != v4);//true
+console.log(v3 !== v4);//false
+
+let v5 = 5;
+let v6 = 10;
+
+console.log(v5 > v6);
+console.log(v5 < v6);
+console.log(v5 >= v6);
+console.log(v5 <= v6);
