@@ -204,3 +204,21 @@ console.log(v5 > v6);
 console.log(v5 < v6);
 console.log(v5 >= v6);
 console.log(v5 <= v6);
+
+
+//================= Operadores lógicos ==========
+
+let v7 = 5;
+let v8 = -10;
+
+// true (verdadero) && true (Verdadero)  ===> true (verdadero)
+// false (falso)    && true (Verdadero)  ===> false
+// false (falso)    && false (falso)   ===> false
+// true (Verdadero) && false (falso)   ===> false
+console.log(v7 > 0 && v8 > 0);
+
+// true (verdadero) || true (Verdadero)  ===> true
+// false (falso)    || true (Verdadero)  ===> true
+// false (falso)    || false (falso)   ===> false
+// true (Verdadero) || false (falso)   ===> true
+console.log(v7 > 0 || v8 > 0);
