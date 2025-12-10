@@ -209,16 +209,48 @@ console.log(v5 <= v6);
 //================= Operadores lógicos ==========
 
 let v7 = 5;
-let v8 = -10;
+let v8 = 10;
+/*
+Operador AND (&&):
+El operador AND devuelve true si ambos
+operandos son true, y devuelve false en cualquier
+otro caso.
+El operador && se utiliza para evaluar dos
+expresiones lógicas y devuelve true si ambas
+expresiones son verdaderas.
 
+*/
 // true (verdadero) && true (Verdadero)  ===> true (verdadero)
 // false (falso)    && true (Verdadero)  ===> false
 // false (falso)    && false (falso)   ===> false
 // true (Verdadero) && false (falso)   ===> false
 console.log(v7 > 0 && v8 > 0);
 
+/* 
+Operador OR (||):
+El operador OR devuelve true si al menos uno
+de los operandos es true, y devuelve false solo
+si ambos operandos son false.
+El operador || se utiliza para evaluar dos
+expresiones lógicas y devuelve true si al menos
+una de las expresiones es verdadera.
+*/
+
 // true (verdadero) || true (Verdadero)  ===> true
 // false (falso)    || true (Verdadero)  ===> true
 // false (falso)    || false (falso)   ===> false
 // true (Verdadero) || false (falso)   ===> true
 console.log(v7 > 0 || v8 > 0);
+
+/*
+Operador NOT (!):
+El operador NOT invierte el valor de una expresión
+booleana. Si la expresión es true, el operador NOT
+devuelve false, y si la expresión es false, el operador
+NOT devuelve true.
+El operador ! se utiliza para negar una expresión
+lógica. Convierte true en false y viceversa.
+*/
+console.log(!(v7 > 0));
+// Devuelve false
+console.log(!(v8 < 0));
