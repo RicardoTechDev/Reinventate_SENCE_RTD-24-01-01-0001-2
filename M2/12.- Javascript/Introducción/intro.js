@@ -254,3 +254,123 @@ lógica. Convierte true en false y viceversa.
 console.log(!(v7 > 0));
 // Devuelve false
 console.log(!(v8 < 0));
+
+
+//============== Sentencias condicionales ========
+/* 
+Sentencia if-else:
+La sentencia if-else es una estructura de control en programación que permite tomar
+decisiones basadas en una condición. A diferencia de la sentencia if, que ejecuta un
+bloque de código si una condición es verdadera y luego continúa con el resto del
+programa, la sentencia if-else permite ejecutar un bloque de código si la condición es
+verdadera y otro bloque de código si la condición es falsa.
+*/
+
+let hora = 13;
+hora--;
+
+if (hora < 12) {
+    //Si es verdadera la condición se ejecuta este bloque de código
+    console.log("Buenos días");
+}else{
+    //Si es falsa la condición
+    console.log("Buenas tardes");
+}
+
+/* 
+Operador AND (&&) con IF/ELSE:
+El operador && devuelve true si ambas condiciones
+son verdaderas. Si alguna de las condiciones es
+falsa, devuelve false.
+La condición dentro del if utiliza el operador &&
+para verificar si la edad es mayor o igual a 18 y si
+tiene Licencia es true. Si ambas condiciones son
+verdaderas, se muestra el mensaje "puedes
+conducir legalmente". Si alguna de las condiciones
+es falsa, se muestra el mensaje "No cumples con
+los requisitos para conducir".
+*/
+
+let edadConductor = 25;
+let tieneLicencia = true;
+
+if (edadConductor >= 18 && tieneLicencia){
+    console.log("Puedes conducir legalmente.");
+}else {
+    console.log("No puedes conducir legalmente.");
+}
+
+/* 
+Operador OR (||) con IF/ELSE:
+El operador || devuelve true si al menos una de las
+condiciones es verdadera. Solo devuelve false si
+ambas condiciones son falsas.
+La condición dentro del if utiliza el operador || para
+verificar si esEstudiante es true o si esEmpleado es
+true. Si al menos una de las condiciones es
+verdadera, se muestra el mensaje "Tenes acceso a
+descuentos especiales". Si ambas condiciones son
+falsas, se muestra el mensaje "No tenes acceso a
+descuentos especiales".
+*/
+
+let esEstudiante = false;
+let esEmpleado = true;
+
+if (esEstudiante || esEmpleado){
+    console.log("Tienes acceso a descuentos!!");
+}else{
+    console.log("No tienes acceso a descuentos!!");
+}
+
+/* Switch
+La sentencia switch en JavaScript es una estructura de control condicional 
+que permite ejecutar diferentes bloques de código basándose en el valor de 
+una expresión, sirviendo como una alternativa más organizada y 
+legible a múltiples if...else if anidados, evaluando una variable y 
+comparándola con varios case (casos), ejecutando el bloque del caso 
+coincidente y un default (predeterminado) opcional si no hay coincidencias, 
+siendo clave la sentencia break para evitar la "caída" (ejecución de casos posteriores). 
+
+*/
+
+let expr = "Pl";
+
+switch (expr) {
+    case "Naranjas":
+        console.log("El kilogramo de naranjas cuesta $0.59.");
+        break;
+    case "Manzanas":
+        console.log("El kilogramo de manzanas cuesta $0.32.");
+        break;
+    case "Platanos":
+        console.log("El kilogramo de platanos cuesta $0.48.");
+        break;
+    case "Cerezas":
+        console.log("El kilogramo de cerezas cuesta $3.00.");
+        break;
+    case "Papayas":
+        console.log("El kilogramo de mangos y papayas cuesta $2.79.");
+        break;
+    default:
+        console.log("Lo lamentamos, por el momento no disponemos de " + expr + ".");
+}
+
+let foo = 0;
+
+switch (foo) {
+    case -1:
+        console.log("1 negativo");
+        break;
+    case 0: // foo es 0, por lo tanto se cumple la condición y se ejecutara el siguiente bloque
+        console.log(0);
+    // NOTA: el "break" olvidado debería estar aquí
+    case 1: // No hay sentencia "break" en el 'case 0:', por lo tanto este caso también será ejecutado
+        console.log(1);
+        break; // Al encontrar un "break", no será ejecutado el 'case 2:'
+    case 2:
+        console.log(2);
+        break;
+    default:
+        console.log("default");
+}
