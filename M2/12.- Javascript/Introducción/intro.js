@@ -255,6 +255,29 @@ console.log(!(v7 > 0));
 // Devuelve false
 console.log(!(v8 < 0));
 
+/*
+Sí — el NOT (!) es súper útil en “cosas reales” cuando 
+quieres preguntar lo contrario de una condición, 
+o cuando trabajas con banderas tipo isLoggedIn, 
+isLoading, isDarkMode, etc.
+*/
+
+//Ejemplos
+let isDarkMode = false;
+// El usuario aprieta un botón "Modo oscuro"
+isDarkMode = !isDarkMode;//true
+console.log(isDarkMode); // true (se activó)
+/*
+Aquí ! invierte el valor: false → true, true → false.
+Se usa mucho para activar/desactivar cosas.
+*/
+
+const isAuthorized = false;
+if (!isAuthorized) {
+    console.log("Acceso denegado");
+}
+
+
 
 //============== Sentencias condicionales ========
 /* 
@@ -374,3 +397,22 @@ switch (foo) {
     default:
         console.log("default");
 }
+
+//========== Operador ternario ========
+
+let num1 = 7;
+let num2 = 5;
+
+let rta = num1 < num2 ? "el 1" : "el 2";
+
+/* COMPARACIÓN DE OPERADOR TERNARIO CON IF ELSE
+let rta2;
+
+if (num1 < num2) {
+    rta2 = "el 1";
+}else{
+    rta2 = "el 2"
+}
+console.log(rta2);
+*/
+console.log(rta);
