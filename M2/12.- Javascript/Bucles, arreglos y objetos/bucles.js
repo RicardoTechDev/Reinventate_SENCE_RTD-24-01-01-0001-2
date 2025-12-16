@@ -317,3 +317,41 @@ nota:3
 });
 
 console.log(alumnos);
+
+//TODO: Me queda por hacer tal tarea
+
+
+/* ==============  🎯 Resumen =======
+
+Hoy aprendimos estructuras fundamentales de JavaScript que nos permiten organizar información, 
+automatizar tareas y resolver problemas de forma eficiente.
+
+👉 Arreglos (Arrays)
+
+    -Permiten almacenar múltiples valores en una sola variable.
+    -Se utilizan cuando trabajamos con listas de datos: notas, nombres, precios, resultados, etc.
+    -Facilitan el trabajo repetitivo y el procesamiento de información en conjunto.
+
+🧠 Ejemplo de uso real:
+promedios de notas, listas de productos, registros de usuarios.
+
+
+👉 Objetos (objetos literales)
+
+    -Permiten agrupar información relacionada usando pares clave–valor.
+    -Representan elementos del mundo real como personas, productos, autos o estudiantes.
+    -Hacen que el código sea más ordenado, legible y cercano a la realidad.
+
+🧠 Ejemplo de uso real:
+ficha de un estudiante (nombre, edad, nota), información de un producto.
+
+👉 Bucles (for, while, do…while)
+Los bucles no solo sirven para recorrer arreglos.
+
+Sirven para:
+    -Repetir una acción varias veces sin duplicar código.
+    -Procesar datos paso a paso.
+    -Ejecutar una tarea mientras se cumpla una condición.
+
+Automatizar cálculos, validaciones y controles.
+*/
