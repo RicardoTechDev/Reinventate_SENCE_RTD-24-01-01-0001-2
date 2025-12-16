@@ -19,8 +19,8 @@ do{
             alert("Hola! Bienvenido al programa");
             break;
         case "2":
-            //let fecha = new Date();
-            alert("Fecha actual: 16-12-2025");
+            let fecha = new Date();
+            alert("Fecha actual: " + fecha.toLocaleDateString());
             break;
         case "3":
             alert("Saliendo del programa...");
