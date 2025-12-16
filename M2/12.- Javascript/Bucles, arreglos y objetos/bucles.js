@@ -260,3 +260,60 @@ let b = [3, 4];
 
 let unido = a.concat(b);
 console.log(unido); // [1, 2, 3, 4]
+
+//Objetos (objetos literales no POO, como variable)
+let user = {
+    nombres: "Sofía Reyes", 
+    edad: 12, 
+    direccion: "av siempre viva 1234"
+};
+
+console.log("Nombre de usuario: " + user.nombres);
+console.log("Edad: " + user.edad);
+console.log("Dirección: " + user.direccion);
+
+user.edad = 13;
+
+console.log("La nueva edad de " + user.nombres + " es: " + user.edad);
+
+let usuarios = [
+    {
+        nombre: "Ana", 
+        edad: 34
+    },
+    {
+        nombre: "Pedro",
+        edad: 28
+    },
+    14,
+    "Hola munda"    
+];
+
+console.log(usuarios[1].nombre);
+
+//Ejmeplo:
+//Crear una función que reciba un arreglo de estudiantes (nombre y nota)
+//y muestre solo los que tienen nota mayor o igual a 6.0
+
+let alumnos = [
+    {nombre: "Ana", nota:6.5},
+    {nombre: "Pedro", nota:5.4},
+    {nombre: "Juan", nota:5.6},
+];
+
+function mostrarAprobados(estudiantes){
+    for(let estudiante of estudiantes){
+        if(estudiante.nota >= 6){
+            console.log(estudiante.nombre + " está aprobado con nota " + estudiante.nota);
+        }
+    }
+}
+
+mostrarAprobados(alumnos);
+
+alumnos.push({
+nombre: "Luis", 
+nota:3
+});
+
+console.log(alumnos);
