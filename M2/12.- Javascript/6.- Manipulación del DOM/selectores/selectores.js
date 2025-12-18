@@ -139,3 +139,40 @@ btnCambiarTextos3.addEventListener("click", function(){
         parrafo.style.fontSize = "100px";
     });
 });
+
+//6️⃣ Obtención y manipulación de textos y valores
+const mensaje = document.getElementById("mensaje");
+//const mensaje = document.querySelector("#mensaje");
+console.log(mensaje.textContent);
+
+mensaje.textContent = "¡Texto cambiado con Javascript!";
+console.log(mensaje.textContent);
+
+mensaje.innerHTML = "<strong>Hola mundo!!</strong>"
+
+/*
+Diferecia entre usar textContent y innerHTML:
+- textContent --> maneja texto plano
+- innerHTML --> maneja text + HTML
+*/
+
+//7️⃣ Obtener datos de los inputs
+const formulario = document.querySelector("#floatingInputGroup1");
+console.log(formulario);
+
+let botonMostrar = document.querySelector("#btnMostrar");
+console.log(botonMostrar);
+
+botonMostrar.addEventListener("click", function(){
+    console.log(formulario.value);
+    const parrafo = document.querySelector("#resultado");
+    console.log(parrafo);
+
+    parrafo.textContent = formulario.value;
+
+
+});
+
+
+
+
