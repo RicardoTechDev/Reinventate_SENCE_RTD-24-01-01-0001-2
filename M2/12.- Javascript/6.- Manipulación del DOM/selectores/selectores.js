@@ -77,7 +77,65 @@ const textos = document.getElementsByClassName("texto");
 const btnCambiarTextos = document.getElementById("boton-cambiar-parrafos");
 
 btnCambiarTextos.addEventListener("click", function(){
-    for(let i=0; i < textos.length; i++){
-        textos[i].classList.add("resaltar");
+    // for(let i=0; i < textos.length; i++){
+    //     textos[i].classList.add("resaltar");
+    // }
+
+    for(let texto of textos){
+        texto.style.color = "red";
+        texto.style.backgroundColor = "blue";
+        texto.style.fontSize = "30px";
     }
+});
+
+//🔹 ============== getElementByTagName() ===========
+const parrafos = document.getElementsByTagName("p");
+const btnCambiarTextos2 = document.getElementById("boton-cambiar-parrafos2");
+
+btnCambiarTextos2.addEventListener("click", function(){
+    for(let parrafo of parrafos){
+        parrafo.style.color = "red";
+        parrafo.style.fontSize = "30px";
+    }
+});
+
+
+//4️⃣ Seleccionar con querySelector (recomendado y más usado hoy)
+//Busca el primer elemento que coincida con selector css
+
+/*caracteristicas : 
+- Usa selectores css
+- Devuelve un sólo elemento
+- Más flexible
+- Más moderno
+- Más de recordar
+
+*/
+document.querySelector("#titulo"); // seleciono por id
+document.querySelector(".texto"); //seleciono por clase
+document.querySelector("p"); //seleciono por nombre de la etiqueta
+
+//Si no encuentra el elemento --> devulve un null
+
+//5️⃣ Selecionar con querySelectorAll()
+//Busca todos los elementos que coincidad con un selector css
+
+/* 
+Carasteristicas: 
+- Devuelve un conjunto de nodos o un alista de nodos 
+- permite iterar usando bucles, for, while, forEach
+- Es más comodo de utilizar que getElementByTagName() y 
+getElementsByClassName
+*/
+
+const parrafos3 = document.querySelectorAll(".texto")
+
+const btnCambiarTextos3 = document.getElementById("boton-cambiar-parrafos3");
+
+btnCambiarTextos3.addEventListener("click", function(){
+    
+    parrafos3.forEach(parrafo => {
+        parrafo.style.color = "blue";
+        parrafo.style.fontSize = "100px";
+    });
 });
