@@ -167,12 +167,15 @@ botonMostrar.addEventListener("click", function(){
     console.log(formulario.value);
     const parrafo = document.querySelector("#resultado");
     console.log(parrafo);
-
+    //📌 value se usa SOLO para inputs, selects y textareas.
+    //“Los inputs no usan textContent, usan value.”
     parrafo.textContent = formulario.value;
 });
 
 //Pedir al usuario que ingrese dos números
 //Paso 1 selecionar elementos
+//TODO: Revisar conversión directa al recuperar con value
+//let numeroUno = Number(document.getElementById("num-uno").value);
 let numeroUno = document.getElementById("num-uno");
 let numeroDos = document.getElementById("num-dos");
 let btnSumar = document.getElementById("btnMostrarSuma");
@@ -190,3 +193,18 @@ btnSumar.addEventListener("click", function(){
     resultado.textContent = suma;
 });
 
+//8️⃣ Agregar nodos al DOM (crear elementos o etiquetas html)
+let lista = document.querySelector("#lista");
+let botonAgregarNodo = document.querySelector("#btnAgregarNodo");
+
+botonAgregarNodo.addEventListener("click", function(){
+    let nuevoItem = document.createElement("li");//crear un nuevo nodo o elemento
+    nuevoItem.textContent = "Nuevo Nodo!!";//Le da contenido al nuevo nodo
+    lista.appendChild(nuevoItem);//agrega nuevo hijo a el nodo lista (ul)
+});
+
+//Otro ejemplo, agregar parrafo
+let nuevoParrafo = document.createElement("p");
+let contenedorParrafo = document.querySelector("#contenedo-parrafo");
+nuevoParrafo.textContent = "Nuevo parrafo!!";
+contenedorParrafo.appendChild(nuevoParrafo);
