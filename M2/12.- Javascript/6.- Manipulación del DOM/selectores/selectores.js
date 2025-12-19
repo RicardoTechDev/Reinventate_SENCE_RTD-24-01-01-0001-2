@@ -169,10 +169,24 @@ botonMostrar.addEventListener("click", function(){
     console.log(parrafo);
 
     parrafo.textContent = formulario.value;
-
-
 });
 
+//Pedir al usuario que ingrese dos números
+//Paso 1 selecionar elementos
+let numeroUno = document.getElementById("num-uno");
+let numeroDos = document.getElementById("num-dos");
+let btnSumar = document.getElementById("btnMostrarSuma");
+let resultado = document.getElementById("resultadoSuma");
 
+//Con queryselector
+// let numeroUno = document.querySelector("#num-uno");
+// let numeroDos = document.querySelector("#num-dos");
+// let btnSumar = document.querySelector("#btnMostrarSuma");
+// let resultadoSuma = document.querySelector(".resultadoSuma");
 
+//Paso 2 Darle funcionalidad al botón
+btnSumar.addEventListener("click", function(){
+    let suma = Number(numeroUno.value) + Number(numeroDos.value);
+    resultado.textContent = suma;
+});
 
