@@ -255,3 +255,30 @@ let resultadoInput2 = document.querySelector("#resultadoInput2");
 ingresoTexto2.addEventListener("change", function(){
     resultadoInput2.textContent = ingresoTexto2.value;
 });
+
+//Evento mouseover --> mouse entra 
+let caja = document.querySelector("#caja");
+
+caja.addEventListener("mouseover", function(){
+    //console.log("Mouse por aquí");
+    caja.style.backgroundColor = "red";
+    caja.style.color = "#FFFFFF";
+    caja.textContent = "Mouse dentro del nodo!!";
+});
+
+//Evento mouseout --> mouse sale
+caja.addEventListener("mouseout", function(){
+    caja.style.backgroundColor = "#05DF72";
+    caja.style.color = "blue";
+    caja.textContent = "Mouse fuera del nodo!!";
+});
+
+
+//Evento keydown
+let ingresoTexto3 = document.getElementById("ingresoTexto3");
+let resultadoInput3 = document.getElementById("resultadoInput3");
+//TODO: verificar, no marca la tecla espaciadora
+ingresoTexto3.addEventListener("keydown", function(event) {
+    //console.log("Se presionó una tecla " + event.key);
+    resultadoInput3.textContent = event.key;
+});
