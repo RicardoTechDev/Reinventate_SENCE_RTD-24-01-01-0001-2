@@ -175,7 +175,9 @@ botonMostrar.addEventListener("click", function(){
 //Pedir al usuario que ingrese dos números
 //Paso 1 selecionar elementos
 //TODO: Revisar conversión directa al recuperar con value
-//let numeroUno = Number(document.getElementById("num-uno").value);
+//let numeroUno = Number(document.getElementById("num-uno").value); 
+// el value quedá undefined, ya que en esta instacia aun el nodo con 
+//id num-uno no tiene un value ingresado por el usuario
 let numeroUno = document.getElementById("num-uno");
 let numeroDos = document.getElementById("num-dos");
 let btnSumar = document.getElementById("btnMostrarSuma");
@@ -211,3 +213,45 @@ let contenedorParrafo = document.querySelector("#contenedo-parrafo");
 nuevoParrafo.textContent = "Nuevo parrafo!!";// Agregar contenido al elemento
 // Agregar el nuevo elemento como hijo del nodo padre
 contenedorParrafo.appendChild(nuevoParrafo);
+
+//9️⃣ Quitar nodos del DOM
+let btnRemove = document.querySelector("#btnRemove");
+let btnRemoveChild = document.getElementById("btnRemoveChild");
+
+btnRemove.addEventListener("click", function(){
+    if (lista.lastElementChild){
+        lista.lastElementChild.remove();
+    }
+});
+
+btnRemoveChild.addEventListener("click", function(){
+    if (lista.lastElementChild){
+        lista.removeChild(lista.lastElementChild);
+    }
+});
+
+//🔟 Eventos básicos del DOM
+//Evento click
+let btnClick = document.getElementById("btnClick");
+
+btnClick.addEventListener("click", function(){
+    alert("Botón presionado!!");
+});
+
+
+//Evento input
+let ingresoTexto = document.querySelector("#ingresoTexto");
+let resultadoInput = document.querySelector("#resultadoInput");
+
+ingresoTexto.addEventListener("input", function(){
+    console.log(ingresoTexto.value);
+    resultadoInput.textContent = ingresoTexto.value;
+});
+
+//Evento change
+let ingresoTexto2 = document.querySelector("#ingresoTexto2");
+let resultadoInput2 = document.querySelector("#resultadoInput2");
+
+ingresoTexto2.addEventListener("change", function(){
+    resultadoInput2.textContent = ingresoTexto2.value;
+});
