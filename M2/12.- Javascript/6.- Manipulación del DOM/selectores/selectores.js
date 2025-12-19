@@ -194,6 +194,7 @@ btnSumar.addEventListener("click", function(){
 });
 
 //8️⃣ Agregar nodos al DOM (crear elementos o etiquetas html)
+//Ejemplo: agregar un nuevo <li> a una lista
 let lista = document.querySelector("#lista");
 let botonAgregarNodo = document.querySelector("#btnAgregarNodo");
 
@@ -204,7 +205,9 @@ botonAgregarNodo.addEventListener("click", function(){
 });
 
 //Otro ejemplo, agregar parrafo
-let nuevoParrafo = document.createElement("p");
+let nuevoParrafo = document.createElement("p");// Crear un elemento <p>
+// Obtener el nodo padre al que deseas agregar el nuevo 
 let contenedorParrafo = document.querySelector("#contenedo-parrafo");
-nuevoParrafo.textContent = "Nuevo parrafo!!";
+nuevoParrafo.textContent = "Nuevo parrafo!!";// Agregar contenido al elemento
+// Agregar el nuevo elemento como hijo del nodo padre
 contenedorParrafo.appendChild(nuevoParrafo);
