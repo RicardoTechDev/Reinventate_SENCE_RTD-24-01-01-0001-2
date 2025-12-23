@@ -67,7 +67,34 @@ form.addEventListener("submit", function(event){
 
     setTimeout(function() {
         console.log("Datos recibidos en el backend");
-        mostrarAlerta("Usuario registrado de manera correcta!!", "success");
+        
+        //https://sweetalert2.github.io/#configuration
+        // Swal.fire({
+        //     position: "center",
+        //     icon: "success",
+        //     title: "Usuario registrado de manera correcta!!",
+        //     showConfirmButton: false,
+        //     timer: 2000
+        // });
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+            });
+            Toast.fire({
+            icon: "success",
+            title: "Usuario registrado de manera correcta!!"
+            });
+        
+        
+        //mostrarAlerta("Usuario registrado de manera correcta!!", "success");
         //Reset de los campos del formulario (borra información de los inputs)
         form.reset();
     }, 3000);
