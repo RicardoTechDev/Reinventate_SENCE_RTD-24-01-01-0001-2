@@ -87,3 +87,46 @@ $("#formDemo").on("submit", function(e){
     .text("✅ Formulario enviado correctamente!")
 
 })
+
+const userObj = {
+  username : "Maria",
+  email: "maria@mail.com",
+  cuantaSantander: 51245878,
+  saldoCtaSantander: 100000,
+}
+
+localStorage.setItem('user', JSON.stringify(userObj))
+
+
+const storedUserData = localStorage.getItem('user')
+
+if (storedUserData) {
+  const userData = JSON.parse(storedUserData)
+
+  userData.saldoCtaSantander += 50000;
+
+  $("#msgUser").text(userData.saldoCtaSantander);
+  // You can use userData here...
+} else {
+  console.log('User data not found in local storage')
+}
+
+
+localStorage.removeItem("user");
+
+/*
+window.location.href = "./home.html"
+
+window.location.href = "./login.html"
+
+Swal.fire({
+    icon: "success",
+    title: "Sweet!",
+    text: "Modal with a custom image.",
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+}).then(() => window.location.href = "./home.html");*/
+
