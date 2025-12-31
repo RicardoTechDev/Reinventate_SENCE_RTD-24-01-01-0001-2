@@ -61,3 +61,29 @@ $("#txtTeclado").on("keypress", function(){
 })
 
 
+/* =========================
+6) SUBMIT (formulario)
+========================= */
+
+$("#formDemo").on("submit", function(e){
+    e.preventDefault();// evitar que se recargue la página
+
+    let nombre = $("#txtNombre").val().trim();
+
+    //El usuario no ingreso nada
+    if(nombre === ""){
+        $("#msgForm")
+        .removeClass("d-none")
+        .removeClass("alert-success")
+        .addClass("alert-danger")
+        .text("⚠️ El nombre es obligatior.");
+        return;
+    }
+
+    $("#msgForm")
+    .removeClass("d-none")
+    .removeClass("alert-danger")
+    .addClass("alert-success")
+    .text("✅ Formulario enviado correctamente!")
+
+})
