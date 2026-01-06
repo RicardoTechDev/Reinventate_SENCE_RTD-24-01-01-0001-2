@@ -1,0 +1,87 @@
+/*Crea un algoritmo para registrar productos en una tienda.
+
+El programa debe:
+-Pedir cuántos productos se van a registrar (N).
+-Para cada producto, pedir: nombre y precio.
+-Calcular el total a pagar (sumando todos los precios).
+-Identificar el producto más caro (nombre y precio).
+
+Al final, mostrar:
+la lista de productos ingresados,
+el total,
+y el producto más caro.*/
+
+
+INICIO
+    ESCRIBIR "¿CUÁNTOS PRODUCTOS VA A A REGISTRAR (N)"
+    LEER N
+
+    CREAR lista NOMBRES vacía
+    CREAR lista PRECIOS vacía
+
+    TOTAL <- 0
+    PRECIO_MAYOR <- 0
+    NOMBRE_MAYOR <- ""
+
+    PARA i DESDE 1 HASTA N HACER
+        ESCRIBIR "Producto " , i
+        ESCRIBIR "ingrese el nombre del producto"
+        LEER NOMBRE
+        REGISTRAR NOMBRE PRODUCTO
+
+        ESCRIBIR "ingrese el precio del producto"
+        LEER PRECIOS
+        REGISTRAR PRECIOS PRODUCTO
+
+        PRECIO <- ULTIMO PRECIO REGISTRADO 
+
+        TOTAL <- TOTAL + PRECIO
+
+        SI PRECIO > PRECIO_MAYOR ENTONCES
+            PRECIO_MAYOR <- PRECIO
+            NOMBRE_MAYOR <- ULTIMO NOMBRE REGISTRADO
+        FIN SI
+    FIN PARA
+
+    ESCRIBIR "-----------------------------"
+    ESCRIBIR "PRODUCTOS INGRESADOS"
+
+    PARA i DESDE 1 HASTA N HACER
+        ESCRIBIR "* " , NOMBRES[i] : PRECIOS[i]
+    FIN PARA
+
+    ESCRIBIR "-----------------------------"
+    ESCRIBIR "TOTAL A PAGAR :" , TOTAL 
+
+    ESCRIBIR "-----------------------------"
+    ESCRIBIR "PRODUCTO MÁS CARO :", NOMBRE_MAYOR : "$", PRECIO_MAYOR 
+
+FIN
+
+
+
+
+//EJERCICIOS PARA LOS ALUMNOS
+
+1: Promedio de edades
+Enunciado:
+Pide la cantidad de personas (N). Luego pide la edad de cada persona. Al final muestra el promedio y la edad mayor.
+
+
+
+2: Total de compras
+Enunciado:
+Pide cuántos productos se comprarán (N). Luego pide el precio de cada producto. 
+Al final muestra el total y cuántos productos costaron más de $10.000.
+
+
+3: Asistencia a clases
+Enunciado:
+Pide cuántos estudiantes hay (N). Para cada estudiante pide si asistió a clases(S/N). 
+Al final muestra cuántos asistieron y cuántos faltaron.
+
+
+4: Juego de puntajes
+Enunciado:
+Pide cuántos jugadores hay (N). Ingresa el puntaje de cada uno. Al final muestra el puntaje total y el puntaje más alto.
+
