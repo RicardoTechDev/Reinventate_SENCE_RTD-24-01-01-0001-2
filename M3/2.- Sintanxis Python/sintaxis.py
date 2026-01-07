@@ -244,3 +244,63 @@ print(hobby1, hobby2, hobby3)
 print(nombre, edad, direccion)
 print(nombre_usuario, nombre_cliente, nombre_venta)
 
+
+#* ✅ Ejemplos de variables en Python
+
+#* 🔹 1. Inicio válido (letra o _)
+edad = 12
+nombre = "Ana"
+_altura = 1.68
+contador1 = 0
+
+#! Incorrectos
+1edad = 12
+2nombre = "Ana"
+
+#* 🔹 2. Caracteres permitidos (letras, números y _)
+nombre_alumno = "Pedro"
+nota_final = 6.7
+total_puntos_paes = 825
+
+#! Incorrecta
+nombre-alumno = "Pedro"
+nota final = 6.5
+total$puntos = 120
+
+#* 🔹 3. Sensibilidad a mayúsculas y minúsculas
+edad = 10
+Edad = 15 #mala práctica primera letra mayúscula
+
+#? Nota: para declarar variables globales es buena práctica usar sólo mayúsculas
+PESO_EN_MARTE = 0.81
+
+#* 🔹 4. Convención snake_case (recomendada)
+#*Usar nombres claros y descriptivos de lo que almacenan
+nombre_estudiante = "Camila"
+promedio_notas = 6.2
+cantidad_asistencias = 18
+es_mayor_de_edad = False
+precio_total_compra = 12500
+
+#! Poco recomendada
+n = "Camila"
+x1 = 6.2
+e = 25
+
+#* 🔹 5. Evitar palabras reservadas
+#! No se puede usar
+# if = 10
+# for = "Hola mundo"
+# while = "569123456678"
+# retunr = "dato"        
+
+'''
+================== 🧩 Resumen corto nombre de variables =====================
+📌 Buenas prácticas al nombrar variables en Python:
+
+Usar letras, números y _
+No comenzar con números
+Usar minúsculas y snake_case
+Usar nombres claros y descriptivos
+No usar palabras reservadas
+'''
