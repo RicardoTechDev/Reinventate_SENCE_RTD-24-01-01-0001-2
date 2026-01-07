@@ -304,3 +304,169 @@ Usar minúsculas y snake_case
 Usar nombres claros y descriptivos
 No usar palabras reservadas
 '''
+
+# ============================================================
+# 6) TIPOS DE DATOS (BÁSICOS Y OTROS)
+# ============================================================
+#* Básicos
+nombre = "Diego"     #str
+edad = 12            #int
+altura = 1.62        #float
+es_estudiante = True #bool
+
+#* Avanzados
+#* Lista -> list
+# - Guarda varios datos en una sola variable
+# - Es ordenada (mantiene el orden de los elementos)
+# - Es modificable (se pueden agregar, cambiar o eliminar elementos)
+notas = [6.0, 5.4, 4.0, "hola"]
+
+#* Diccionario -> dict
+# - Guarda datos en pares clave : valor
+# - Permite acceder a los valores usando la clave
+# - Es muy útil para representar objetos o personas
+alumnos = {
+    "nombre": "Sofia",
+    "edad": 28,
+    "direccion": "lasdasdlasd"
+}
+
+print(alumnos["nombre"])
+
+#* Tupla -> tuple
+# - Guarda varios datos como una lista
+# - No se puede modificar (es inmutable)
+# - Se usa cuando los datos no deben cambiar
+dias = ("lunes", "martes")# 🔹 Similar a lista, pero no se modifica ES INMUTABLE.
+
+#* Conjunto -> set
+# - No permite elementos repetidos
+# - No mantiene un orden fijo
+# - Es útil para eliminar duplicados
+numeros = {1,2, 3, 3, 3}
+print(numeros)
+
+#* Valor vacío -> NoneType
+# - Representa la ausencia de un valor
+# - Se usa cuando una variable aún no tiene dato
+# - No es lo mismo que 0 ni una cadena vacía
+resultado = None # != 0 y != ""
+
+#* Número complejo -> complex
+# - Tiene una parte real y una imaginaria
+# - Se escribe usando la letra j
+# - Se usa en cálculos matemáticos avanzados
+valor = 2 + 3j
+
+print(type(notas))
+print(type(alumnos))
+print(type(dias))
+print(type(numeros))
+print(type(resultado))
+print(type(valor))
+
+# ============================================================
+# 7) PARSEO VS CASTEO
+# ============================================================
+"""
+🧠 Diferencia entre parseo y casteo
+Parseo: convertir TEXTO a un valor interpretable.
+Ej: "12" -> 12 (int)
+
+Casteo: convertir un tipo a otro.
+Ej: 3 (int) -> "3" (str) o 3 -> 3.0 (float)
+"""
+
+#* Parseo
+#*El parseo ocurre cuando tomamos un texto (str) 
+#* y lo interpretamos para obtener un valor con significado (número, fecha, etc.).'''
+edad_texto = "12"
+edad_num = int(edad_texto)
+print(edad_texto, type(edad_texto))
+print(edad_num, type(edad_num))
+
+#* Casteo
+#* El casteo es cambiar el tipo de un dato a otro, aunque ya sea un valor válido.
+texto_x = str(3)
+print(texto_x, type(texto_x))
+
+# ============================================================
+# 8) ENTRADA Y SALIDA DE DATOS (input / print)
+# ============================================================
+edad_usuario = int(input("Ingrese la edad :"))
+print(edad_usuario, type(edad_usuario))
+
+
+# ============================================================
+# 9) OPERADORES (pendiente para la siguiente parte)
+# ============================================================
+
+#* 1. Operadores Aritméticos
+a = 10
+b = 3
+
+print(a + b) # Suma → 13
+print(a - b) # Resta → 7
+print(a * b) # Multiplicación → 30
+print(a / b) # División → 3.333...
+print(a // b) # División entera → 3
+print(a % b) # Módulo (resto) → 1
+print(a ** b) # Potencia → 1000
+
+#* 2. Operadores Relacionales (o de comparación)
+x = 5
+y = 10
+
+print(x == y) # Igualdad → False
+print(x != y) # Distinto → True
+print(x > y )  # Mayor que → False
+print(x < y) # Menor que → True
+print(x >= 5) # Mayor o igual → True
+print(y <= 8) # Menor o igual → False
+
+
+#* 3. Operadores Lógicos
+edad = 20 
+tiene_permiso = True
+
+print(edad >= 18 and tiene_permiso) #True
+print(edad >= 18 or tiene_permiso) #True
+print(not tiene_permiso) #False
+
+#* 4. Operadores de Asignación
+num = 10
+num += 5 #num +5 -> 10+5= 15
+num -= 3 # 15-3 = 12
+num *= 2 # num * 2 -> 12 * 2= 24
+num /= 4 # num = num / 4 -> 24/4 = 6
+
+print(num)
+
+#* 5. Operadores de Incremento / Decremento
+#! Incorrecto en Python
+# i++
+# i--
+
+i = 5
+
+#incremento
+i += 1
+
+#decremento
+i -= 1
+
+#* 6. Operadores de Concatenación
+#*Se usan para unir textos (strings).
+nombre = "Ana"
+apellido = "Perez"
+
+nombre_completo = nombre + " " + apellido
+print(nombre_completo)
+
+mensaje = "Hola"
+mensaje += " mundo"
+print(mensaje)
+
+#f-string (interpolación)
+nombre_comple_alumno = f"{mensaje} mundo"
+print(nombre_comple_alumno)
