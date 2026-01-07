@@ -468,5 +468,79 @@ mensaje += " mundo"
 print(mensaje)
 
 #f-string (interpolación)
-nombre_comple_alumno = f"{mensaje} mundo"
+nombre_comple_alumno = f"{mensaje} mundo, chao mundo {nombre}{apellido}"
 print(nombre_comple_alumno)
+
+#* 7. Operadores Bit a Bit (nivel avanzado)
+#trabajan con los bits (0 y 1) que forman los números en binario
+
+a = 5  # en binario es 0101
+b = 3  # en binario es 0011
+
+#Da 1 solo si ambos bits son 1.
+print(a & b) # AND → 1
+
+"""
+    a = 0 1 0 1 --> 5
+    b = 0 0 1 1 --> 3
+        --------
+    AND 0 0 0 1
+
+0001 = 1
+"""
+
+#Da 1 si al menos uno es 1
+print(a | b)   # OR  → 7
+"""
+a = 0 1 0 1 --> 5
+b = 0 0 1 1 --> 3
+    --------
+OR  0 1 1 1
+
+0111 = 7
+"""
+
+#Da 1 si son distintos
+print(a ^ b)   # XOR → 6
+'''
+a = 0 1 0 1 --> 5
+b = 0 0 1 1 --> 3
+    --------
+XOR 0 1 1 0
+
+0110 = 6
+
+'''
+
+#Invierte los bits
+#⚠️ En Python el NOT trabaja con enteros con signo:
+print(~a)      # NOT -> -6
+
+#* a = 0 1 0 1 --> 5
+#* ~a = 1 0 1 0 --> -6 (conceptual)
+
+#* ~a = -(a + 1)
+#* ~5 = -(5 + 1) --> -6
+
+#* Mueve los bits a la izquierda y agrega 0
+#* Equivale a multiplicar por 2
+print(a << 1)  # Desplazamiento izquierda → 10
+'''
+a      = 0 1 0 1 --> 5
+a << 1 = 1 0 1 0 --> 10
+
+1010 = 10
+
+'''
+
+
+#* Mueve los bits a la derecha
+#* Equivale a dividir por 2 (entero)
+print(a >> 1)  # Desplazamiento derecha → 2
+'''
+a      = 0 1 0 1
+a >> 1 = 0 0 1 0
+
+0010 = 2
+
+'''
