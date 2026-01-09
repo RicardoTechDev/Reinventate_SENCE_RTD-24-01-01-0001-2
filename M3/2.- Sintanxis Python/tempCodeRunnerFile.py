@@ -1,17 +1,8 @@
-#a. Pide al usuario que ingrese un número decimal.
-numero_texto = input("Ingrese un número decimal:")
-
-#b. Convierte la entrada a número (float).
-numero = float(numero_texto)#casteo
-
-#c. Usa una estructura if para verificar si es mayor a cero.
-if numero > 0:
-    print(f"El número {numero} es mayor a cero (positivo)")
-
-#d. Si no lo es, agrega una condición elif para comprobar si es menor a cero.
-elif numero < 0:
-    print(f"El número {numero} es menor a cero (negativo)")
-
-#e. Si ninguna de las anteriores se cumple, usa else para indicar que el número es cero.
-else:
-    print("El número es cero")
+print("Enteros del 1 al 100")
+for numero in range(1, 101):
+    if numero%10 ==  0 :
+        print("Ecas OTEC")
+    elif numero%5 ==  0 :
+        print("Ecas")
+    else :
+        print(numero)
