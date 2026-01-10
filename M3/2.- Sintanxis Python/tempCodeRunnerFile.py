@@ -1,8 +1,9 @@
-print("Enteros del 1 al 100")
-for numero in range(1, 101):
-    if numero%10 ==  0 :
-        print("Ecas OTEC")
-    elif numero%5 ==  0 :
-        print("Ecas")
-    else :
-        print(numero)
+alumnos = ["Ana", "Luis", "Pedro", "Sofía"]
+if "Sandra" in alumnos:
+    print("Sandra esta en la lista alumnos")
+else:
+    print("Sandra no esta en la lista alumnos")
+
+
+if "Juan" not in alumnos:
+    print("Juan no esta en la lista alumnos")
