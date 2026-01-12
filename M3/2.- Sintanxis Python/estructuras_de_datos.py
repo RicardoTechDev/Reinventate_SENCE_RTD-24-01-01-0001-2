@@ -101,3 +101,5 @@ else:
 
 if "Juan" not in alumnos:
     print("Juan no esta en la lista alumnos")
+
+#*======================= Tuplas --> tuple =========================
