@@ -103,3 +103,68 @@ if "Juan" not in alumnos:
     print("Juan no esta en la lista alumnos")
 
 #*======================= Tuplas --> tuple =========================
+'''
+¿Qué es una tupla?
+
+Una tupla es una estructura de datos que guarda varios valores, igual que una lista, 
+pero con una diferencia clave:
+
+✅ Una tupla es inmutable
+👉 Esto significa que no se puede modificar (no se puede cambiar, agregar ni eliminar elementos).
+'''
+
+#*crear tupla
+dias = ("lunes", "martes", "viernes")
+numeros = (1, 2, 3 , 4, 5)
+mezcla = ("Ana", 6.5, 12, True)
+
+#lista = ["Luis"] 
+#no_tupla = ("Luis") No es una tupla, string
+tupla = ("Luis", )
+
+#*Acceder a los elementos de una tupla
+dias = ("lunes", "martes", "viernes")
+print(dias[1])#acceder igual que en las listas
+print(dias[0])
+print(dias[-1])
+
+#*Correr una tupla
+#?con for
+dias = ("lunes", "martes", "viernes")
+
+for dia in dias:
+    print(dia)
+
+
+for indice, dia in enumerate(dias, start=1):
+    print(f"{indice} - {dia}")
+
+#* Que no podemos hacer
+dias = ("lunes", "martes", "viernes")
+#dias[0] = "Sábado"
+#print(dias) 
+
+#? Creamos una nueva tupla (reemplazando la variable)
+dias2 = ("domingo", ) + dias
+print(dias2)
+
+#!No puedo modificar los elementos
+#!No puedo agregar
+#!No puedo eliminar
+
+#*Eliminar tupla
+variable_tupla=(1,2,3,4)
+print(variable_tupla)
+
+
+del variable_tupla
+print(variable_tupla)
+
+#* Cambiar tipo o convertir
+dias = ("lunes", "martes", "viernes")
+print(dias)
+dias_lista = list(dias) #convertir a lista
+dias_lista.remove("lunes")
+print(dias_lista)
+dias = tuple(dias_lista) #volver a tupla
+print(dias)
