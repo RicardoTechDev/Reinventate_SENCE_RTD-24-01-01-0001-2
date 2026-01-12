@@ -168,3 +168,59 @@ dias_lista.remove("lunes")
 print(dias_lista)
 dias = tuple(dias_lista) #volver a tupla
 print(dias)
+
+
+
+#* ============================= SETS ==================================
+''' 
+¿Qué es un set?
+
+Un set es una colección de elementos:
+sin orden
+sin elementos repetidos
+sirve mucho para eliminar duplicados y para comparar conjuntos
+'''
+numeros = {3, 2, 1, 2, 3, 3, 3}
+print(numeros)
+
+numeros = {} #No es un set, es un diccionario
+numeros = set()#Para declarar set vacíos
+
+#*==== Operaciones básicas ====
+frutas = {"Manzana", "Sandía", "Pera"}
+print(frutas)
+frutas.add("Uva")
+print(frutas)
+frutas.remove("Pera")
+print(frutas)
+frutas.pop()
+print(frutas)
+frutas.discard("Frutilla")#elimina, sin error si elemento no está
+print(frutas)
+
+#*El lugar lo decide Python, porque es un set sin orden
+
+#* Recorrer
+frutas = {"Manzana", "Sandía", "Pera", "Uvas"}
+for fruta in frutas:
+    print(fruta)
+
+
+#*Verificar si está
+print("Uvas" in frutas)
+print("Kiwi" not in frutas)
+
+#*Operaciones de conjuntos
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+print(A | B) #Unión --> {1 , 2, 3, 4, 5}
+print(A & B) #Intersección --> {3}
+print(A - B) #Diferencia --> {1, 2}
+print(B - A)
+print(A ^ B) #Diferecia simétrica --> {1, 2 , 4, 5} 
+
+#!==== IMPORTANTE ====
+#! No hay índices
+#! No hay primero ni último
+#! No se puede elegir posición  

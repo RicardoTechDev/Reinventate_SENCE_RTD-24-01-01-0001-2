@@ -1,13 +1,8 @@
-ciudades = [
-    ("Pucón", (-39.28223, -71.95427)),
-    ("Valdivia", (-39.81422, -73.24589)),
-    ("Futaleufu", (-43.1858, -71.8667)),
-    ("Punta Arenas", (-53.1625, -70.9081)),
-]
+A = {1, 2, 3}
+B = {3, 4, 5}
 
-#*7. Iterar sobre la lista de tuplas y mostrar cada ciudad
-print("================= LISTA DE CIUDADES ==================")
-for nombre_ciudad, coordenadas_ciudad in ciudades:
-    latitud = coordenadas_ciudad[0]
-    longitud = coordenadas_ciudad[1]
-    print(f"La ciudad {nombre_ciudad} está ubicada en ({latitud}, {longitud})")
+print(A | B) #Unión --> {1 , 2, 3, 4, 5}
+print(A & B) #Intersección --> {3}
+print(A - B) #Diferencia --> {1, 2}
+print(B - A)
+print(A ^ B) #Diferecia simétrica --> {1, 2 , 4, 5} 
