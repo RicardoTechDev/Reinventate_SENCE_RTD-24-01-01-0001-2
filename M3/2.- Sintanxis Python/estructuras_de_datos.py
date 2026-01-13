@@ -224,3 +224,16 @@ print(A ^ B) #Diferecia simétrica --> {1, 2 , 4, 5}
 #! No hay índices
 #! No hay primero ni último
 #! No se puede elegir posición  
+
+#*========================= DICCIONARIOS (dict) ========================
+'''
+✅ ¿Qué es un diccionario?
+
+Un diccionario guarda datos en pares:
+
+👉 clave : valor
+
+✅ rápido para buscar por clave
+✅ ideal para representar “fichas” o “registros”
+✅ se usa mucho en inventarios, usuarios, datos de alumnos, etc.
+'''
