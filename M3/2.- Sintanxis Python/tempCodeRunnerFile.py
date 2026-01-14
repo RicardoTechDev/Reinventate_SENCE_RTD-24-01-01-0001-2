@@ -1,8 +1,31 @@
-A = {1, 2, 3}
-B = {3, 4, 5}
+#*Métodos importantes de diccionarios
+productos = {
+    "pan" : {"precio": 2000, "stock": 100},
+    "leche" : {"precio": 1000, "stock": 35}
+}
 
-print(A | B) #Unión --> {1 , 2, 3, 4, 5}
-print(A & B) #Intersección --> {3}
-print(A - B) #Diferencia --> {1, 2}
-print(B - A)
-print(A ^ B) #Diferecia simétrica --> {1, 2 , 4, 5} 
+#*Alternativa al método get
+try:
+    print(productos["jugo"])
+except:
+    print("No existe el producto")
+
+#*Recupera y si no existe lo crea
+arroz = productos.setdefault("arroz", {"precio": 1990, "stock": 30})
+print(productos)
+
+pescado = productos.setdefault("pescado")
+print(pescado)
+
+#*Actualizar (con otro diccionario)
+nuevos = {
+    "pescado":  {"precio": 3500, "stock": 35},
+    "huevos":  {"precio": 400, "stock": 35}
+}
+
+productos.update(nuevos)
+print(productos)
+
+#* Borrar todo el diccionario
+productos.clear()
+print(productos)
