@@ -391,3 +391,34 @@ productos.clear()
 print(productos)
 
 
+##### AGREGAR UNA CLAVE DE FORMA MASIVA
+
+# Agregar una clave de forma masiva a TODOS los alumnos
+for alumno in alumnos:
+    alumnos[alumno]["asistencia"] = 50
+
+
+for alumno in alumnos:
+    alumnos[alumno].update({
+        "observaciones": 'Excelente Alumno',
+        "aprobado": 'SI',
+        "anotaciones": True
+    })
+
+
+# Agregar varias claves de forma masiva
+# for alumno in alumnos:
+#     alumnos[alumno].update({
+#         "activo": True
+#     })
+
+# # Agregar una clave calculada (aprobado según promedio)
+for alumno in alumnos:
+    if alumnos[alumno]["promedio"] >= 6:
+        alumnos[alumno]["aprobado"] = True
+    else:
+        alumnos[alumno]["aprobado"] = False
+
+# Mostrar resultado final
+for alumno, datos in alumnos.items():
+    print(alumno, "->", datos)
