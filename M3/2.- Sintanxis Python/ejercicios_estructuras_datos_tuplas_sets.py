@@ -98,7 +98,212 @@ print(f"Catálogo B: {set_b}")
 #* =======================================================
 #*            PRESENTACIÓN EXEQUIEL URIBE
 #* =======================================================
+'''
+Sistema de gestión de estudiantes (listas + tuplas)
 
+Contexto:
+Una institución educativa necesita registrar y consultar información de sus estudiantes. Cada estudiante
+tiene un nombre, una edad y una ciudad de residencia. Se requiere un sistema básico para almacenar los
+datos, listarlos, buscar estudiantes por ciudad y obtener estadísticas.
+Consigna:
+● Desarrollar un programa que permita:
+● Registrar múltiples estudiantes representados por tuplas dentro de una lista.
+● Mostrar todos los registros con formato legible.
+● Permitir consultar cuántos estudiantes son de una ciudad específica.
+● Mostrar la edad promedio de los estudiantes registrados.
+
+Tiempo : 25 Minutos
+
+Sistema de gestión de estudiantes (listas + tuplas)
+
+Paso a paso:
+1. Crear una lista vacía llamada estudiantes.
+2. Cada entrada será una tupla con 3 datos: (nombre, edad, ciudad).
+3. Agregar al menos 5 estudiantes con datos variados.
+4. Recorrer la lista e imprimir cada estudiante con el formato:
+"Nombre: Ana, Edad: 25, Ciudad: Córdoba"
+5. Pedir al usuario que ingrese una ciudad, y contar cuántos estudiantes son de esa ciudad.
+6. Calcular la edad promedio de todos los estudiantes (sumar edades / total).
+7. Bonus: Permitir agregar un nuevo estudiante desde consola.
+'''
+alumnos = [
+    ("Felipe", 23, "Santiago"),
+    ("Ariel", 27, "Talca"),
+    ("Maria", 18, "Temuco"),
+    ("Juan", 30, "Santiago"),
+    ("Leonardo", 26, "Temuco"),
+    ("Javiera", 33, "Concepcion")
+]
+# for datos in alumnos:
+#     nombre = datos[0]
+#     edad = datos[1]
+#     ciudad = datos[2]
+#     print(f"Nombre: {nombre}, Edad: {edad} años, Ciudad: {ciudad}")
+
+print("\nBienvenido/a a la demo lista de estudiantes")
+
+opcion = ""
+
+while opcion != "5":
+    if not alumnos:
+        print("\n")
+        print("No hay alumnos en la lista")
+    print("")
+
+    #*Mostrar opciones al usuario
+    print("\nMenu")
+    print("1) Mostrar lista de alumnos")
+    print("2) Buscar alumnos por ciudad")
+    print("3) Calcular edad promedio")
+    print("4) Agregar nuevo estudiante")
+    print("5) Salir")
+
+    opcion = input("\nElije una opcion: ")
+
+    match opcion:
+        case "1": #Agregar una tarea
+            for datos in alumnos:
+                nombre = datos[0]
+                edad = datos[1]
+                ciudad = datos[2]
+                print(f"Nombre: {nombre}, Edad: {edad} años, Ciudad: {ciudad}")
+            
+
+        case "2":
+            por_ciudad = input("Ingrese la ciudad de los alumnos: ")
+            alumno_ciudad = 0
+            for busqueda in alumnos:
+                if busqueda[2] == por_ciudad:
+                    alumno_ciudad += 1
+                    # print(f"Coincide ciudad {busqueda}")
+            print(f"\nLa cantidad de alumnos en la ciudad de {por_ciudad} es de {alumno_ciudad} estudiante(s)")
+
+        case "3":
+            edad_total = 0
+            for edades in alumnos:
+                edad = edades[1]
+                edad_total += edad
+            print(f"\nLa edad promedio de los estudiantes es de {(edad_total/len(alumnos)):.2f} años")
+
+        case "4":
+            add_nombre = str(input("Ingrese el nombre del estudiante: "))
+            add_edad = int(input("Ingrese la edad: "))
+            add_ciudad = str(input("Ingrese la ciudad: "))
+            alumnos.append((add_nombre, add_edad, add_ciudad))
+
+            print(f"El alumno {add_nombre} ha sido agregado correctamente")
+
+        case "5":
+            print("\nSaliendo........")
+            break
+        case _:
+            print("\nOpcion no valida")
+            print("-----------------------------------------------------\n")
+            
+
+#!==============================================================================================
+'''
+Comparador de catálogos de diseño (sets)
+
+Contexto:
+Una agencia de diseño gráfico está integrando productos de dos catálogos distintos. Necesitan identificar
+los colores que se repiten, los únicos de cada catálogo y todos los colores disponibles sin duplicados.
+Además, desean poder agregar y quitar colores según decisiones del equipo creativo.
+Consigna:
+Construir un programa que:
+● Compare dos listas de colores y elimine duplicados.
+● Informe qué colores están en ambos catálogos.
+● Determine qué colores son exclusivos de cada uno.
+● Permita agregar un nuevo color al catálogo A y eliminar uno del catálogo B.
+● Presente todos los resultados de manera clara.
+
+Tiempo : 25 Minutos
+
+Comparador de catálogos de diseño (sets)
+Paso a paso:
+1. Crear dos listas: catalogo_a = [...] y catalogo_b = [...] con al menos 6 colores cada una (incluyendo
+duplicados).
+2. Convertir ambas listas a sets: set_a y set_b.
+3. Mostrar los siguientes resultados:
+● Unión: todos los colores disponibles sin duplicados.
+● Intersección: colores que están en ambos catálogos.
+● Diferencia A - B: colores únicos del catálogo A.
+● Diferencia B - A: colores únicos del catálogo B.
+4. Agregar un nuevo color al set_a (usando add()).
+5. Eliminar un color específico del set_b (usando discard()).
+6. Mostrar los sets actualizados con mensajes claros.
+'''
+
+catalogo_a = ["azul", "verde", "rojo", "amarillo", "rosado", "celeste", "verde"]
+catalogo_b = ["celeste", "violeta", "naranjo", "azul", "cafe", "blanco", "rojo"]
+
+set_a = set(catalogo_a)
+set_b = set(catalogo_b)
+
+print("\nBienvenido/a a la demo de colores")
+
+opcion = ""
+
+while opcion != "8":
+
+    #*Mostrar opciones al usuario
+    print("\nMenu")
+    print("1) Mostrar todos los colores")
+    print("2) Mostrar interseccion de colores")
+    print("3) Mostrar colores unicos del catalogo A")
+    print("4) Mostrar colores unicos del catalogo B")
+    print("5) Agregar nuevo color al catalogo A")
+    print("6) Eliminar color especifico al catalogo B")
+    print("7) Mostrar catalogos actualizados")
+    print("8) Salir")
+
+    opcion = input("\nElije una opcion: ")
+
+    match opcion:
+        case "1": #Unión: todos los colores disponibles sin duplicados
+            print(f"Estos son los colores disponibles {set_a | set_b}")
+
+        case "2": #Intersección: colores que están en ambos catálogos
+            print(f"Estos colores estan en ambos catalogos {set_a & set_b}")
+
+        case "3": #Diferencia A - B: colores únicos del catálogo A
+            print(f"Colores unicos del catalogo A {set_a - set_b}")
+
+        case "4": #Diferencia B - A: colores únicos del catálogo B.
+            print(f"Colores unicos del catalogo B {set_b - set_a}")
+
+        case "5": #Agregar un nuevo color al set_a (usando add()).
+            add_color = input("Ingrese el color que quiere agregar al catalogo A: ")
+            set_a.add(add_color)
+            print(f"\nEl color {add_color} ha sido agregado correctamente")
+
+        case "6": #Eliminar un color específico del set_b (usando discard())
+            print(f"Colores en B {set_b}")
+            eliminar_color = input("Ingrese el color que desea eliminar del catalogo B: ")
+            if eliminar_color not in set_b:
+                print("\nEl color ingresado no esta en la lista")
+                continue
+
+            set_b.discard(eliminar_color)
+            print(f"\nEl color {eliminar_color} ha sido eliminado correctamente")
+
+        case "7": #Mostrar los sets actualizados con mensajes claros.
+            print(f"\nTodos los colores: {set_a | set_b}")
+            print("\nColores por catalogo: ")
+            print("\n - Catalogo A")
+            for coloresA in set_a:
+                print(coloresA)
+
+            print("\n - Catalogo B")
+            for coloresB in set_b:
+                print(coloresB)
+
+        case "8":
+            print("\nSaliendo........")
+            break
+        case _:
+            print("\nOpcion no valida")
+            print("-----------------------------------------------------\n")
 
 #* =======================================================
 #*            PRESENTACIÓN MARJORIE AGUILERA
@@ -209,8 +414,119 @@ for color in set_b:
 #* =======================================================
 #*            PRESENTACIÓN HIPÓLITO CAYUPI
 #* =======================================================
+"""Contexto:
+Una institución educativa necesita registrar y consultar información de sus estudiantes. Cada estudiante
+tiene un nombre, una edad y una ciudad de residencia. Se requiere un sistema básico para almacenar los
+datos, listarlos, buscar estudiantes por ciudad y obtener estadísticas.
+Consigna:
 
+● Desarrollar un programa que permita:
+● Registrar múltiples estudiantes representados por tuplas dentro de una lista.
+● Mostrar todos los registros con formato legible.
+● Permitir consultar cuántos estudiantes son de una ciudad específica.
+● Mostrar la edad promedio de los estudiantes registrados."""
 
+estudiante=[
+    ("Ana", 18, "Temuco"),
+    ("Luis", 21, "Santiago"),
+    ("María", 19, "Temuco"),
+    ("Pedro", 22, "Valdivia"),
+    ("Carla", 20, "Santiago"),
+    ("Diego", 23, "Temuco")
+]
+
+opcion=0
+
+while opcion!=8  :
+
+    print("\nMenu")
+    print("1) Registrar estudiante")
+    print("2) Listar estudiantes")
+    print("3) Buscar estudiante por ciudad")
+    print("4) Estudiantes por ciudad")
+    print("5) Promedio de edad de estudiantes")
+    print("6) Modificar alumno")
+    print("7) Eliminar alumno")
+    print("8) Salir")
+
+    opcion = int(input("Elige una opción: "))
+
+    match opcion:
+        case 1: 
+            nombre=input("Nombre estudiante: ")
+            edad = int(input("Edad: "))
+            ciudad=input("Ciudad: ")
+
+            estudiante.append((nombre, edad, ciudad))
+        case 2: 
+            for nombre, edad, ciudad in estudiante:
+                print(f"\nNombre: {nombre}. Edad: {edad}. Ciudad: {ciudad}")
+        case 3: 
+            buscaCiudad = input("\nIngrese ciudad: ")
+
+            for nombre, edad, ciudad in estudiante:
+                if ciudad.lower()==buscaCiudad.lower():
+                    print(f"\nNombre: {nombre} Edad:{edad} Ciudad: {ciudad}")   
+        case 4:
+            contador = 0
+            ciudadEstudiante = input("\nIngrese la ciudad a consultar: ")
+            for nombre, edad, ciudad in estudiante:
+                    if ciudad.lower()==ciudadEstudiante.lower():
+                        contador+=1
+            
+            print(f"\nHay {contador} estudiantes en la ciudad de {ciudadEstudiante}")
+
+        case 5:
+            sumaEdad = 0
+            for nombre, edad, ciudad in estudiante:
+                    sumaEdad +=int(edad)
+            promedioEdad = sumaEdad /len(estudiante)
+
+            print(f"\nPromedio edad de todos los estudiantes:{promedioEdad}")
+        
+        case 6:
+            contador = 0
+            nombreEstudianteModificar = input("\nIngrese nombre del estudiante a modificar: ")
+            print("\nLista de estudiantes\n")
+            print("N°    |  Nombre   |  Edad    |  Ciudad  |")
+            for index,(nombre, edad, ciudad) in enumerate(estudiante):
+                if nombreEstudianteModificar.lower() == nombre.lower():
+                    print(f"  \n{index}   -       {nombre}        {edad}       {ciudad}")
+                    contador+=1
+            
+            print(f"\n Se han encontrado {contador} coincidencia(s)")
+
+            indexModificar = int(input("\n¿Qué regitro desea modificar? \nIngrese número de regitro: "))
+
+            for index,(nombre, edad, ciudad) in enumerate(estudiante):
+                if indexModificar==index:
+                    nombre = input("\nNombre: ")
+                    edad = input("\nEdad: ")
+                    ciudad = input("\nCiudad: ")
+                    estudiante[index]=(nombre, edad, ciudad)
+
+            print("\n Modificación realizada...")
+        case 7:
+            contador = 0
+            nombreEstudianteModificar = input("Ingrese nombre del estudiante a eliminar: ")
+            print("\nLista de estudiantes\n")
+            print("N°    |  Nombre   |  Edad    |  Ciudad  |")
+            for index,(nombre, edad, ciudad) in enumerate(estudiante):
+                if nombreEstudianteModificar.lower() == nombre.lower():
+                    print(f"  \n{index}   -       {nombre}        {edad}       {ciudad}")
+                    contador+=1
+            
+            print(f"\n Se han encontrado {contador} coincidencia(s)")
+
+            indexModificar = int(input("\n¿Qué regitro desea eliminar? \nIngrese número de regitro: "))
+
+            for index,(nombre, edad, ciudad) in enumerate(estudiante):
+                if indexModificar==index:
+                    estudiante.pop(index)
+            print("\n Registro eliminado exitosamente...")
+
+        case _:
+            print("\nNo es una opción válida\n")                       
 
 
 #* =======================================================
