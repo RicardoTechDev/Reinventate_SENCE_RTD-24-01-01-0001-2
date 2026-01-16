@@ -1,13 +1,5 @@
 '''
-1) Buscar un producto por ID
-
-Enunciado:
-Crea una función buscar_producto(productos, id_producto) que reciba un diccionario de productos y un ID.
-Debe devolver el diccionario del producto si existe, o None si no existe.
-'''
-
-'''
-2) Sumar ventas por producto
+1) Sumar ventas por producto
 
 Enunciado:
 Crea una función sumar_venta(ventas, producto, cantidad) que sume la cantidad vendida al diccionario ventas.
@@ -16,7 +8,7 @@ Si el producto no existe, debe crearlo con esa cantidad.
 
 
 '''
-3) Calcular el promedio de notas de un alumno
+2) Calcular el promedio de notas de un alumno
 
 Enunciado:
 Crea una función promedio_alumno(alumnos, nombre) que reciba:
@@ -29,7 +21,7 @@ Debe devolver el promedio, o -1 si el alumno no existe.
 
 
 '''
-4) Carrito de compras (agregar, total, mostrar)
+3) Carrito de compras (agregar, total, mostrar)
 
 Enunciado:
 Vas a simular un carrito de compras usando un diccionario.
