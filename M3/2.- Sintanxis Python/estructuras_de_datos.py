@@ -246,6 +246,21 @@ alumno = {
 
 #*Acceder 
 print(alumno["nombre"])
+#print(alumno["nota"])
+
+edad_alumno = alumno.get("nota")#Forma más segura --> None si no existe la clave --> False
+
+if not edad_alumno: # if False
+    print(alumno)
+else:
+    print("alumno no registrado")
+
+''' Forma contraria
+if not nota_alumno: # if True
+    print("alumno no registrado")
+'''
+
+
 
 #*Modificar
 alumno["edad"] = 28 
@@ -254,8 +269,10 @@ alumno["edad"] = 28
 alumno["curso"] = "Fundamentos de Python"
 print(alumno)
 
-print("nombre" in alumno)
-print("direccion" not in alumno)
+print("nombre" in alumno)#--> True
+print("direccion" not in alumno)#-->True
+print("direccion" in alumno)#-->False
+
 
 #! Esto nos da error
 #direccion = alumno["direccion"]#no es una forma segura si no tenemos certeza de que existe la clave
@@ -289,7 +306,9 @@ del alumno["ciudad"]
 print(alumno)
 
 #Otra alternativa
-alumno.pop("edad")
+id = "P002" 
+eliminado = alumno.pop("edad")#Elimina y retorna lo que eliminó
+print(eliminado)
 print(alumno)
 
 #* ==== Recorrer diccionarios ====
@@ -298,7 +317,7 @@ alumno = {
     "edad": 27,
     "ciudad": "Temuco"
 }
-for clave in alumno:#recuperar sólo las claves
+for clave in alumno:#recuperar sólo las claves, otra forma alumno.keys()
     print(clave)
 
 for valor in alumno.values():#recupera el valor sin la clave o key
@@ -329,11 +348,15 @@ print(alumnos["Ana"])
 print(alumnos.get("Pedro"))
 
 #Acceder a un dato en especifíco
-print(alumnos["Ana"]["curso"])
+try:
+    print(alumnos["Ana"]["curso"])
+except Exception as e:
+    print("No existe el alumno")
+
 print(alumnos.get("Pedro").get("curso"))
 
 #Modificar un dato
-alumnos["Ana"]["curso"] = "6°B"
+curso = alumnos["Ana"]["curso"] = "6°B"
 
 #Agregar un nuevo dato
 alumnos["Ana"]["asistencia"] = 70
@@ -387,7 +410,9 @@ productos.update(nuevos)
 print(productos)
 
 #* Borrar todo el diccionario
-productos.clear()
+productos.clear()#--> {}
+print(productos)
+productos.update(nuevos)
 print(productos)
 
 
@@ -422,3 +447,17 @@ for alumno in alumnos:
 # Mostrar resultado final
 for alumno, datos in alumnos.items():
     print(alumno, "->", datos)
+
+#Otra forma
+def randon_notas():
+    #Notas random del 4 al 7
+    pass
+
+claves = ["Ana", "Luis", "Sandra"]
+alumnos = dict.fromkeys(claves, {
+                                "observaciones": 'Excelente Alumno',
+                                "aprobado": 'SI',
+                                "anotaciones": True,
+                                "Nota": randon_notas()
+                                })
+print(alumnos)
