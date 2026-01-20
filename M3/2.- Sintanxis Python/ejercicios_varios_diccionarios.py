@@ -26,9 +26,7 @@ Enunciado:
 Tienes este stock. Pide un producto y cuántas unidades se venden.
 
 Si el producto no existe → avisa.
-
 Si no hay stock suficiente → avisa.
-
 Si se puede → descuenta y muestra el stock final.
 '''
 
