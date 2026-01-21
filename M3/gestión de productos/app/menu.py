@@ -15,7 +15,7 @@ No debería tener lógica de negocio (no calcular totales, modificar productos).
 
 # --- Módulos y paquetes propios del proyecto ---
 from app import productos as functions_productos
-from functions import helpers as functions_helpers
+from app.functions import helpers as functions_helpers
 
 
 def mostrar_menu():

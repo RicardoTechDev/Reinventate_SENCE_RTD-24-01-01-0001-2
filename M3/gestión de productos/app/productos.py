@@ -9,7 +9,7 @@ Funciones del CRUD:
 
 Aquí vive “lo importante” del sistema, lógica del negocio
 '''
-from functions.helpers import imprimir_tabla
+from app.functions.helpers import imprimir_tabla
 
 
 def listar_productos(productos):
