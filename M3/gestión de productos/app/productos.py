@@ -20,7 +20,7 @@ def agregar_producto(productos):
     print("Desde agregar_producto")
     pass
 
-def buscar_producto_por_id(productos):
+def buscar_producto_por_id(productos, id):
     print("Desde buscar_producto_por_id")
     pass
 
