@@ -32,4 +32,7 @@ animales.append(mi_gato)
 leon = Animal("Bofi", "León")
 animales.append(leon)
 
+#Guardar instancias en un alista
 print(animales)
+animales[0].hablar()
+animales[1].hablar
