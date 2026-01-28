@@ -29,12 +29,14 @@ carlos = Persona("Carlos", 20)#una segunda instancia
 persona3 = Persona("Sandra", 25)
 
 print("Presentación inicial")
-ana.presentarse()
+ana.presentarse()   
 carlos.presentarse()
 persona3.presentarse()
 
 ana.cumplir_anios()
-ana.variable
+
+
+
 
 
 

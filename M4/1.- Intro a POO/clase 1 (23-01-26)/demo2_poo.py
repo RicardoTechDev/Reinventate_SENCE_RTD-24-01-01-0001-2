@@ -17,5 +17,6 @@ persona1.presentarse()
 persona2.presentarse()
 
 persona1.edad += 1
+persona1.nombre += " Salazar"
 persona1.presentarse()
 persona2.presentarse()
