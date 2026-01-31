@@ -7,6 +7,7 @@ El * es lo importante
 Todo lo que llega sin nombre se guarda en una tupla
 '''
 def sumar(*args):
+    #largo = len(args)
     total = 0
     for n in args:
         total += n
@@ -36,7 +37,13 @@ def mostrar(**kwargs):
     '''
     print(kwargs)
 
-mostrar(nombre="Ana", edad=30)
+
+mostrar(
+    nombre="Ana", 
+    edad=30, 
+    direccion="Av siempreViva", 
+    altura=1.68
+    )
 
 
 #Otro ejemplo 
@@ -59,7 +66,7 @@ def saludar(titulo, *args, **kwargs):
 
 saludar(
     "Datos",
-    "Ana", "Pedro",
+    "Ana", "Pedro", "Luis", "Sandra",
     ciudad="Temuco",
     activo=True
 )
