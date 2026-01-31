@@ -22,7 +22,7 @@ class Persona:
         self.nombre = nombre #atributo público
 
     
-    def saludar(self, *args):#*args lo recibe como tupla con ()
+    def saludar(self, *args, **kwargs):#*args lo recibe como tupla con ()
         largo = len(args)
         
         if largo == 0:
@@ -37,6 +37,8 @@ class Persona:
         else:
             print("Máximo 2 argumentos")
 
+        print(kwargs)
+
 #?===================== DEMO ===========================
 persona = Persona("Arsenio")
 
@@ -50,4 +52,4 @@ print("==== con dos argumentos ===")
 persona.saludar("Lucía", "Córdoba")
 
 print("==== prueba con más de 2 ===")
-persona.saludar("Lucía", "Córdoba", "Ana")
+persona.saludar("Lucía", "Córdoba", nombre2 = "Ana", edad=25)
