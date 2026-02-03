@@ -6,7 +6,7 @@ args no es una palabra reservada
 El * es lo importante
 Todo lo que llega sin nombre se guarda en una tupla
 '''
-def sumar(*args):
+def sumar(*arsg):
     #largo = len(args)
     total = 0
     for n in args:
