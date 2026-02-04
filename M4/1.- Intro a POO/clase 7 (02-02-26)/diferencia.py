@@ -1,7 +1,8 @@
 '''
 🔗 Diferencia entre colaboración y composición
 
-Ambas hablan de cómo se relacionan los objetos, pero no es lo mismo “usar” que “estar hecho de”.
+Ambas hablan de cómo se relacionan los objetos, 
+pero no es lo mismo “usar” que “estar hecho de”.
 
 🧩 Colaboración (uso)
 🧠 Idea clave
