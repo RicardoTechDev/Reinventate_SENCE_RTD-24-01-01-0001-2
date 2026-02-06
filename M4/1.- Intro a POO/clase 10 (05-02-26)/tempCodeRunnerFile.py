@@ -1,45 +1,25 @@
-def procesar(*args, **kwargs):
+def mezclar_textos(*args, separador=" ", mayus=False):
+    # Si no se reciben textos
     if len(args) == 0:
-        print("Nada que procesar")
-    elif len(args) == 1:
-        print("Un dato:", args[0])
+        return "Sin textos"
 
-    if kwargs.get("debug"):
-        print("Modo debug activo")
+    # Unir los textos usando el separador
+    # resultado = separador.join(args)
+    resultado = ""
+    for i, texto in enumerate(args):
+        if i > 0:
+            resultado += separador
+        resultado += texto
+
+    # Convertir a mayúsculas si corresponde
+    if mayus:
+        resultado = resultado.upper()
+
+    return resultado
 
 
-# 1) Sin argumentos
-procesar()
-# Nada que procesar
 
-print("-"*15)
-
-# 2) Con 1 argumento posicional
-procesar(123)
-# Un dato: 123
-
-print("-"*15)
-
-# 3) Con 1 argumento posicional + debug=True
-procesar("hola", debug=True)
-# Un dato: hola
-# Modo debug activo
-
-print("-"*15)
-
-# 4) Solo kwargs (sin args) + debug=True
-procesar(debug=True)
-# Nada que procesar
-# Modo debug activo
-
-print("-"*15)
-
-# 5) Con varios args (ojo: tu función NO hace nada con len(args)>1)
-procesar(1, 2, 3)
-# (no imprime nada, porque no hay caso para 2 o más args)
-
-print("-"*15)
-
-# 6) Con varios args + debug=True
-procesar(1, 2, 3, debug=True)
-# Modo debug activo
+print(mezclar_textos("hola", "mundo")) # hola mundo
+print(mezclar_textos("hola", "mundo", separador="-")) # hola-mundo
+print(mezclar_textos(mayus=True)) # Sin textos
+print(mezclar_textos("python", "es", "genial", mayus=True)) # PYTHON ES GENIAL
