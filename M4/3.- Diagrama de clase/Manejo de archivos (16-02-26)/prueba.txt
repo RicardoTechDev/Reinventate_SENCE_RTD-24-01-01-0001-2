@@ -1,0 +1,10 @@
+Abr el archivo prueba en modo
+lectura
+Prob cada mtodo por separado
+Usa read y mostrale el contenido
+completo
+a abrir el archivo y us readline
+para leer lnea por lnea
+Volv a abrirlo y us readlines para
+guardar todas las lneas en una lista
+los resultados por consola
