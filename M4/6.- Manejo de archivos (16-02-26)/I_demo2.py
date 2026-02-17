@@ -45,6 +45,10 @@ try:
     linea2 = archivo.readline()
     linea3 = archivo.readline()
 
+    print(archivo.name)
+    print(archivo.mode)
+    print(archivo.closed)
+
     archivo.close()
     print("Primera línea")
     print(linea1)
