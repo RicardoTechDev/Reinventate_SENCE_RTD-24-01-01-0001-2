@@ -1,28 +1,38 @@
+<!-- vista previa: Ctrl+Shift+V -->
+# MySQL en Windows (Server + Workbench)
+
+Referencia (descargas):  
 https://www.mysql.com/downloads/
 
-1) MySQL en Windows (server + Workbench)
+---
 
-Necesitas:
+## Qué necesitas
 
-    * MySQL Server (el motor de BD)
-    * MySQL Workbench (para ver tablas, hacer queries, modelar)
+- **MySQL Server** → el motor de base de datos.
+- **MySQL Workbench** → interfaz gráfica para ver tablas, ejecutar consultas (queries) y modelar.
 
-Pasos típicos:
+> Alternativa GUI: **DBeaver** (si quieres una sola herramienta para distintos motores de BD).
 
-1.- Instala MySQL Installer for Windows (incluye Server + Workbench).
-2.- Durante la instalación:
+---
 
-    * Define password para root.
-    * Deja el puerto 3306 (por defecto).
-    * Habilita que corra como Windows Service (arranque automático).
+## Pasos típicos (MySQL Installer for Windows)
 
-3.- Verifica que está corriendo:
-    
-    * Abre Services (Servicios) y revisa MySQL80 (o similar) → “Running”.
+### 1) Instalar
+1. Descarga e instala **MySQL Installer for Windows** (incluye **Server + Workbench**).
 
-4.- Prueba desde consola (si agregaste a PATH):
+### 2) Configurar durante la instalación
+- Define una **contraseña para `root`**.
+- Deja el **puerto 3306** (por defecto).
+- Activa que corra como **Windows Service** (inicio automático).
 
-    * mysql --version
-    * mysql -u root -p
+### 3) Verificar que está corriendo
+- Abre **Services / Servicios**.
+- Busca **MySQL80** (o similar) y revisa que esté en **Running**.
+
+### 4) Probar desde consola (si agregaste MySQL al `PATH`)
+```bash
+mysql --version
+mysql -u root -p
+
 
 GUI recomendada: MySQL Workbench (o DBeaver si quieres uno para todo).

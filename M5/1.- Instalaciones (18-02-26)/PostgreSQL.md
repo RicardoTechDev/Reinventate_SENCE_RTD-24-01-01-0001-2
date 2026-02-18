@@ -1,18 +1,24 @@
+<!-- vista previa: Ctrl+Shift+V -->
+# PostgreSQL en Windows (Server + pgAdmin)
+
+Referencia (descargas):  
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
 
-2) PostgreSQL en Windows (server + pgAdmin)
+---
 
-Necesitas:
+## Qué necesitas
 
-    * PostgreSQL Server
-    * pgAdmin (GUI)
+- **PostgreSQL Server** → el motor de base de datos.
+- **pgAdmin** → interfaz gráfica (GUI) para administrar y ejecutar consultas.
 
-Pasos típicos:
+---
 
-    * Instala PostgreSQL (instalador oficial para Windows).
+## Pasos típicos (instalador oficial para Windows)
 
-Durante la instalación:
+### 1) Instalar
+- Descarga e instala **PostgreSQL** usando el instalador oficial para Windows (EDB).
 
-    * Password del usuario postgres.
-    * Puerto 5432 (por defecto).
-    * Instala pgAdmin si viene marcado.
+### 2) Configurar durante la instalación
+- Define la **contraseña del usuario `postgres`**.
+- Deja el **puerto 5432** (por defecto).
+- Asegúrate de instalar **pgAdmin** si aparece marcado (recomendado).

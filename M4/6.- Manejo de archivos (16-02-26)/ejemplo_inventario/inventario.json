@@ -1,0 +1,188 @@
+[
+  {
+    "sku": "P001",
+    "nombre": "Arroz grano largo 1 kg",
+    "precio": 1590.0,
+    "stock": 45
+  },
+  {
+    "sku": "P002",
+    "nombre": "Fideos spaghetti 400 g",
+    "precio": 990.0,
+    "stock": 60
+  },
+  {
+    "sku": "P003",
+    "nombre": "Aceite vegetal 1 L",
+    "precio": 2890.0,
+    "stock": 30
+  },
+  {
+    "sku": "P004",
+    "nombre": "Azúcar 1 kg",
+    "precio": 1490.0,
+    "stock": 40
+  },
+  {
+    "sku": "P005",
+    "nombre": "Sal fina 1 kg",
+    "precio": 790.0,
+    "stock": 55
+  },
+  {
+    "sku": "P006",
+    "nombre": "Harina sin polvos 1 kg",
+    "precio": 1290.0,
+    "stock": 35
+  },
+  {
+    "sku": "P007",
+    "nombre": "Leche entera 1 L",
+    "precio": 1090.0,
+    "stock": 50
+  },
+  {
+    "sku": "P008",
+    "nombre": "Yogurt natural 1 kg",
+    "precio": 2390.0,
+    "stock": 18
+  },
+  {
+    "sku": "P009",
+    "nombre": "Queso laminado 250 g",
+    "precio": 3190.0,
+    "stock": 22
+  },
+  {
+    "sku": "P010",
+    "nombre": "Huevos docena",
+    "precio": 3290.0,
+    "stock": 28
+  },
+  {
+    "sku": "P011",
+    "nombre": "Atún en lata 160 g",
+    "precio": 1490.0,
+    "stock": 70
+  },
+  {
+    "sku": "P012",
+    "nombre": "Porotos negros 1 kg",
+    "precio": 2690.0,
+    "stock": 20
+  },
+  {
+    "sku": "P013",
+    "nombre": "Lentejas 1 kg",
+    "precio": 2490.0,
+    "stock": 24
+  },
+  {
+    "sku": "P014",
+    "nombre": "Café instantáneo 100 g",
+    "precio": 3590.0,
+    "stock": 16
+  },
+  {
+    "sku": "P015",
+    "nombre": "Té negro 20 bolsitas",
+    "precio": 1290.0,
+    "stock": 40
+  },
+  {
+    "sku": "P016",
+    "nombre": "Galletas de mantequilla 140 g",
+    "precio": 990.0,
+    "stock": 55
+  },
+  {
+    "sku": "P017",
+    "nombre": "Pan de molde 500 g",
+    "precio": 1690.0,
+    "stock": 26
+  },
+  {
+    "sku": "P018",
+    "nombre": "Mermelada frutilla 250 g",
+    "precio": 1990.0,
+    "stock": 19
+  },
+  {
+    "sku": "P019",
+    "nombre": "Salsa de tomate 200 g",
+    "precio": 890.0,
+    "stock": 48
+  },
+  {
+    "sku": "P020",
+    "nombre": "Mayonesa 400 g",
+    "precio": 2390.0,
+    "stock": 21
+  },
+  {
+    "sku": "P021",
+    "nombre": "Ketchup 397 g",
+    "precio": 2090.0,
+    "stock": 20
+  },
+  {
+    "sku": "P022",
+    "nombre": "Detergente lavalozas 750 ml",
+    "precio": 1990.0,
+    "stock": 34
+  },
+  {
+    "sku": "P023",
+    "nombre": "Jabón líquido 1 L",
+    "precio": 2890.0,
+    "stock": 25
+  },
+  {
+    "sku": "P024",
+    "nombre": "Papel higiénico 4 rollos",
+    "precio": 2490.0,
+    "stock": 40
+  },
+  {
+    "sku": "P025",
+    "nombre": "Servilletas 100 un",
+    "precio": 1090.0,
+    "stock": 50
+  },
+  {
+    "sku": "P026",
+    "nombre": "Esponjas pack 3 un",
+    "precio": 1190.0,
+    "stock": 30
+  },
+  {
+    "sku": "P027",
+    "nombre": "Shampoo 750 ml",
+    "precio": 3990.0,
+    "stock": 14
+  },
+  {
+    "sku": "P028",
+    "nombre": "Pasta dental 90 g",
+    "precio": 1490.0,
+    "stock": 32
+  },
+  {
+    "sku": "P029",
+    "nombre": "Agua mineral 1.5 L",
+    "precio": 890.0,
+    "stock": 80
+  },
+  {
+    "sku": "P030",
+    "nombre": "Bebida cola 1.5 L",
+    "precio": 1690.0,
+    "stock": 42
+  },
+  {
+    "sku": "P031",
+    "nombre": "Atún",
+    "precio": 1400.0,
+    "stock": 48
+  }
+]
