@@ -1,0 +1,5 @@
+Línea 1 escrita con write
+Línea 2 escrita con write
+Línea 3 escrita con write
+Línea 4 escrita con write
+Línea 5 escrita con write
