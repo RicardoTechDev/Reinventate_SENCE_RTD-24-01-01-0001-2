@@ -24,7 +24,57 @@ crear archivo de requerimientos: pip freeze > requirements.txt
 
 django-admin startproject nombre_sitio nombre_mi_proyecto
 django-admin startproject nombre_mi_proyecto
+django-admin startproject nombre_mi_proyecto .
 
 Probar corriendo el servidor: opción 1: python manage.py runserver
 			      opción 2: python manage.py runserver 6300 --> Aquí indicamos el puerto en el que queremos que corra
+
+4.- Creación de una aplicación dentro de nuestro proyecto
+paso 1: en consola cd a la carpeta del proyecto (verificar con ls si esta el archivo manage.py)
+paso 2: python manage.py startapp nombre_aplicacion
+
+
+5.- Registrar la app creada en settings.py
+Abre: mi_proyecto/settings.py y en INSTALLED_APPS agrega tu app:
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'nombre_aplicacion',   
+]
+
+6.- Escribe tu primera vista de prueba en views.py de tu aplicación (OJO no proyecto, de tu aplicación)
+"Esta es la vista más básica posible en Django"
+
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("Hello, world. You're at the polls index.")
+ 
+7.- Creamos el archivo de urls de nuestra aplicación (urls.py)
+
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+
+8.- Modificamos la urls.py de nuestro proyecto e incluimos el nuevo archivo urls.py que hemos creado en nuestra aplicación
+deberia quedar así:
+
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path("polls/", include("polls.urls")),
+    path("admin/", admin.site.urls),
+]
+
 				
