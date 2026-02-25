@@ -10,7 +10,9 @@ pip list --> Listar librerias instaladas
 pip install nombre_libreria --> Instalar librerías
 pip uninstall nombre_libreria --> Desinstalar librerías
 
-crear archivo de requerimientos: pip freeze > requirements.txt
+* crear archivo de requerimientos: pip freeze > requirements.txt
+* instalar librerias desde el archivo de requerimientos(requirements.txt): pip install -r requirements.txt
+
 
 2.- Instalar Django
 - Windows - Powershell : py -m pip install Django==6.0.2
@@ -22,9 +24,9 @@ crear archivo de requerimientos: pip freeze > requirements.txt
 
 3.- Creación de un Nuevo Proyecto en Django
 
-django-admin startproject nombre_sitio nombre_mi_proyecto
-django-admin startproject nombre_mi_proyecto
-django-admin startproject nombre_mi_proyecto .
+opción 1: django-admin startproject nombre_sitio nombre_mi_proyecto
+opción 2: django-admin startproject nombre_mi_proyecto
+opción 3: django-admin startproject nombre_mi_proyecto .
 
 Probar corriendo el servidor: opción 1: python manage.py runserver
 			      opción 2: python manage.py runserver 6300 --> Aquí indicamos el puerto en el que queremos que corra
