@@ -1,6 +1,9 @@
 1.- Entornos Virtuales:
 
 Creación: python -m venv nombre_entorno
+OJO: git no avisa que se creo el entorno virtual
+verificar si se creo con ls o ir directo a la carpeta
+
 Activación: 
 	- Windows - Powershell : nombre_entorno\Scripts\activate.bat
 	- Unix/MacOS: source nombre_entorno/bin/activate
