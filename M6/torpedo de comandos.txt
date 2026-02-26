@@ -6,6 +6,8 @@ Activación:
 	- Unix/MacOS: source nombre_entorno/bin/activate
 	- Windows - Gitbash: source nombre_entorno/Scripts/Activate
 
+Desactivación: deactivate
+
 pip list --> Listar librerias instaladas
 pip install nombre_libreria --> Instalar librerías
 pip uninstall nombre_libreria --> Desinstalar librerías
@@ -32,12 +34,13 @@ Probar corriendo el servidor: opción 1: python manage.py runserver
 			      opción 2: python manage.py runserver 6300 --> Aquí indicamos el puerto en el que queremos que corra
 
 4.- Creación de una aplicación dentro de nuestro proyecto
-paso 1: en consola cd a la carpeta del proyecto (verificar con ls si esta el archivo manage.py)
+paso 1: en consola "cd nombre_mi_proyecto" a la carpeta del proyecto (verificar con ls si esta el archivo manage.py)
 paso 2: python manage.py startapp nombre_aplicacion
 
 
 5.- Registrar la app creada en settings.py
-Abre: mi_proyecto/settings.py y en INSTALLED_APPS agrega tu app:
+Abre en visual studio el proyecto completo (carpeta), luego ve a nombre_mi_proyecto/settings.py 
+y en lista INSTALLED_APPS agrega tu aplicación (nombre_aplicacion):
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,9 +59,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Hello, world")
  
-7.- Creamos el archivo de urls de nuestra aplicación (urls.py)
+7.- Creamos el archivo de urls de nuestra aplicación en la carpeta de la aplicación "nombre_aplicacion"  (urls.py)
 
 from django.urls import path
 
@@ -66,16 +69,17 @@ from . import views
 
 urlpatterns = [
     path("", views.index, name="index"),
+    path("home", views.home, name="home"), ---> Otro ejemplo
 ]
 
-8.- Modificamos la urls.py de nuestro proyecto e incluimos el nuevo archivo urls.py que hemos creado en nuestra aplicación
-deberia quedar así:
+8.- Modificamos el archivo urls.py de nuestro proyecto e incluimos el nuevo archivo urls.py que hemos 
+creado en nuestra aplicación, deberia quedar así: (agregamos al import el include y el path de nuestra app)
 
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("polls/", include("polls.urls")),
+    path("my_app", include("nombre_aplicacion.urls")), ----> EJEMPLO ---> 127.0.0.1:8000/my_app/home
     path("admin/", admin.site.urls),
 ]
 
