@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titulo_web %}
+    AlkeWallet | Compras
+{% endblock %}
+
+{% block css %}
+    <style>
+        {% include "compras/styles.css" %}
+    </style>
+{% endblock %}
+
+{% block titulo_pagina %}
+    Compras
+{% endblock %}
+
+{% block location %}
+    <li class="breadcrumb-item active" aria-current="page">Compras</li>
+{% endblock %}
+
+
+{% block content_main %}
+    {% include "compras/content.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        {% include "compras/scripts.js" %}
+    </script>
+{% endblock %}

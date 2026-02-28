@@ -17,4 +17,13 @@ def home_view(request):
         "hoy": date.today(),
         "noticias": ["Django es rápido", "Django es extremadamente facil", "Templates son útiles"],
     }
-    return render(request, "home/home.html", contex)
+    return render(request, "home/page.html", contex)
+
+
+def compras_view(request):
+    contex = {
+        "titulo_pagina" : "Home Alke Wallet",
+        "hoy": date.today(),
+        "total_compras": "768.475"
+    }
+    return render(request, "compras/page.html", contex)

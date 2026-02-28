@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block titulo_web %}
+    AlkeWallet | Dashboard
+{% endblock %}
+
+{% block css %}
+    <style>
+        {% include "home/styles.css" %}
+    </style>
+{% endblock %}
+
+{% block titulo_pagina %}
+    Dashboard
+{% endblock %}
+
+{% block location %}
+{% endblock %}
+
+
+{% block content_main %}
+    {% include "home/content.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        {% include "home/scripts.js" %}
+    </script>
+{% endblock %}
