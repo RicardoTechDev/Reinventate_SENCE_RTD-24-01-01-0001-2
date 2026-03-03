@@ -12,7 +12,7 @@ class ContactoForm(forms.Form):
     '''
 
     nombre = forms.CharField(
-        label = "Nombre", #texto que se usará al mostrar el nombre dedl campo en el template
+        label = "Nombre", #texto que se usará al mostrar el nombre del campo en el template
         max_length = 150, #Validación, no permite más de 150 caracteres
         )
     
