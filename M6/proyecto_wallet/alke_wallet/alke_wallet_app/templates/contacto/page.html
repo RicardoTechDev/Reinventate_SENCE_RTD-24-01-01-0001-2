@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titulo_web %}
+    AlkeWallet | Contacto
+{% endblock %}
+
+{% block css %}
+    <style>
+        {% include "contacto/styles.css" %}
+    </style>
+{% endblock %}
+
+{% block titulo_pagina %}
+    Contacto
+{% endblock %}
+
+{% block location %}
+    Contacto
+{% endblock %}
+
+
+{% block content_main %}
+    {% include "contacto/content.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        {% include "contacto/scripts.js" %}
+    </script>
+{% endblock %}
