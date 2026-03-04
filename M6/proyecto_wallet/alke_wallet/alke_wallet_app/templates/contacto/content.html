@@ -2,14 +2,14 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-7 col-lg-6">
             <!--begin::Formulario de contacto-->
-            <div class="card card-primary card-outline mb-4">
+            <div class="card card-primary mb-4">
                 <!--begin::Header-->
                 <div class="card-header">
                     <div class="card-title">Formulario de contacto</div>
                 </div>
                 <!--end::Header-->
                 <!--begin::Form-->
-                <form method="POST">
+                <form method="POST" novalidate><!-- novalidate desactiva la validación HTML5 -->
                 <!-- {% csrf_token %} es una etiqueta de Django que inserta un “token” 
                 (código secreto) dentro del formulario para protegerlo contra ataques CSRF.
 

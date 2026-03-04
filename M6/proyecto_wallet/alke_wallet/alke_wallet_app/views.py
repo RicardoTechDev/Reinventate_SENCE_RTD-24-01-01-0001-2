@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from datetime import date
 from .forms import ContactoForm
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 # Create your views here.
 def login_view(request):
@@ -89,3 +91,46 @@ def contacto_view(request):
         form = ContactoForm()
 
     return render(request, "contacto/page.html", {"form": form})
+
+
+def contacto_manual_view(request):
+    errores = {}
+    valores = {"nombre": "", "email": "", "mensaje": ""}
+
+    if request.method == "POST":
+        nombre = (request.POST.get("nombre") or "").strip()
+        email = (request.POST.get("email") or "").strip()
+        mensaje = (request.POST.get("mensaje") or "").strip()
+
+        valores = {"nombre": nombre, "email": email, "mensaje": mensaje}
+
+        if not nombre:
+            errores["nombre_error"] = "El nombre es obligatorio"
+        elif len(nombre) > 5:
+            errores["nombre_error"] = "El nombre no puede superar los 150 caracteres"
+
+        if not email:
+            errores["email_error"] = "El email es obligatorio"
+        else:
+            try:
+                validate_email(email)
+            except ValidationError:
+                errores["email_error"] = "El email es inválido"
+
+        if not mensaje:
+            errores["mensaje_error"] = "El mensaje es obligatorio"
+
+        if not errores:
+            print("Acá")
+            contex = {
+                    "nombre" : nombre,
+                    "email" :  email,
+                    "mensaje": mensaje
+                }
+            return render(request, "contacto_ok/page.html", contex)
+
+    context = {
+        "errores" : errores,
+        "valores" : valores
+    }
+    return render(request, "contacto_manual/page.html", context)
