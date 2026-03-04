@@ -10,6 +10,24 @@
                 <!--end::Header-->
                 <!--begin::Form-->
                 <form method="POST">
+                <!-- {% csrf_token %} es una etiqueta de Django que inserta un “token” 
+                (código secreto) dentro del formulario para protegerlo contra ataques CSRF.
+
+                ¿Qué es CSRF?
+                CSRF (Cross-Site Request Forgery) es cuando un sitio malicioso 
+                intenta hacer que tu navegador envíe un POST a tu web 
+                (por ejemplo: “cambiar contraseña”, “hacer una compra”, “transferir dinero”) 
+                sin que tú te des cuenta, aprovechando que ya estás logueado.
+
+                ¿Qué hace el token?
+                Django genera un token por sesión/usuario.
+                {% csrf_token %} lo pone en el HTML como un input oculto.
+                Cuando envías el formulario (POST), Django verifica que ese token sea válido.
+                Si falta o no coincide, Django bloquea la petición con error 403 CSRF verification failed.
+
+                ¿Dónde se usa?
+                En cualquier <form method="post"> que envíe datos: -->
+
                     {% csrf_token %}
                     <!--begin::Body-->
                     <div class="card-body">

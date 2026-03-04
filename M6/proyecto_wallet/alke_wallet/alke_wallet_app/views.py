@@ -76,7 +76,7 @@ def contacto_view(request):
                 "email" :  email,
                 "mensaje": mensaje
             }
-            return render(request, "name.html", contex)
+            return render(request, "contacto_ok/page.html", contex)
         
         #7) Si no es válido form.is_valid(), no entramos al return
         #y caemos en el render final de la función con:

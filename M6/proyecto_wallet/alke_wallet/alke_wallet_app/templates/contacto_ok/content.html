@@ -1,0 +1,15 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-7 col-lg-6">
+            <div class="alert alert-success" role="alert">
+                <p>
+                    ¡Gracias <strong>{{ nombre }}</strong>, recibimos tu mensaje. (Email: {{ email }})!
+                </p>
+                <p>
+                    {{ mensaje }}
+                </p>
+            </div>
+            <a class="btn btn-outline-primary" href="{% url 'contacto' %}">Volver</a>
+        </div>
+    </div>
+</div>

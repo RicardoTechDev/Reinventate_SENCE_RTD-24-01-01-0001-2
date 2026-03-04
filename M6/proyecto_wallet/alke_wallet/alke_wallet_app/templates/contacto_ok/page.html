@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titulo_web %}
+    AlkeWallet | Contacto
+{% endblock %}
+
+{% block css %}
+    <style>
+        {% include "contacto_ok/styles.css" %}
+    </style>
+{% endblock %}
+
+{% block titulo_pagina %}
+    Contacto
+{% endblock %}
+
+{% block location %}
+    <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+{% endblock %}
+
+
+{% block content_main %}
+    {% include "contacto_ok/content.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        {% include "contacto_ok/scripts.js" %}
+    </script>
+{% endblock %}
