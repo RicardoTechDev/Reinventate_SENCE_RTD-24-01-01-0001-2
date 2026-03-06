@@ -18,8 +18,22 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <h1 class="h4 mb-3 text-center">Iniciar sesión</h1>
+                        {% if messages %}
+                            {% for msg in messages%}
+                            {% if msg.tags == 'error' %}
+                            <div class="alert alert-danger">
+                                {{ msg }}
+                            </div>
+                            {% endif %}
 
-                        <form method="post" action="#">
+                            {% if msg.tags == 'success' %}
+                            <div class="alert alert-success">
+                                {{ msg }}
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <form method="POST" action="{% url 'login' %}">
                             {% csrf_token %}
 
                             <div class="mb-3">
@@ -39,9 +53,9 @@
                             </button>
 
                             <p class="text-muted small mt-3 mb-0 text-center">
-                                Demo: solo renderiza el formulario
+                                ¿No tienes cuenta? <a href="{% url 'signup' %}">Crear cuenta</a>
                             </p>
-                            <a href="{% url 'home' %}" class="btn btn-primary">Ir a home</a>
+
                         </form>
                     </div>
                 </div>

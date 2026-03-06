@@ -27,9 +27,9 @@ def login_view(request):
         
         else:
             #Credenciales invalidas
-            messages.error(request,"Debe ingresar un RUT.Usuario o contraseña incorrectos.")
+            messages.error(request,"Usuario o contraseña incorrectos.")
     
-    return render(request, "login/login.html")
+    return render(request, "login/login.html", )
 
 
 def logut_view(request):
@@ -39,7 +39,7 @@ def logut_view(request):
 
 def signup_view(request):
         #Si ya está logueado lo redirijimos al home (opcional)
-    if request.user.is_autenticated:
+    if request.user.is_authenticated:
         return redirect("home")
     
     if request.method == 'POST':
