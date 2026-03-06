@@ -1,14 +1,65 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from datetime import date
 from .forms import ContactoForm
+from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def login_view(request):
+    #Si ya está logueado lo redirijimos al home (opcional)
+    if request.user.is_authenticated:
+        return redirect("home")
+    
+    if request.method == 'POST':
+        username = (request.POST.get("email") or "").strip()
+        password = (request.POST.get("password") or "").strip()
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)#Crear la sesión (queda logueado)
+            return redirect("home")
+        
+        else:
+            #Credenciales invalidas
+            messages.error(request,"Debe ingresar un RUT.Usuario o contraseña incorrectos.")
+    
     return render(request, "login/login.html")
 
 
+def logut_view(request):
+    logout(request)#cerrar la sesion
+    return redirect('login')
+    
+
+def signup_view(request):
+        #Si ya está logueado lo redirijimos al home (opcional)
+    if request.user.is_autenticated:
+        return redirect("home")
+    
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()# Aquí estamos creando el usuario, insertando en la BD
+
+            messages.success(request, "Cuenta creada correctamente. ¡Bienvenido!")
+
+            return redirect('login')
+
+    else:
+        form = UserCreationForm()
+        contex = {
+            "form":form
+            }
+    return render(request, "register/register.html", contex)
+
+@login_required
 def home_view(request):
     contex = {
         "titulo_principal" : "Home Alke Wallet",
@@ -31,6 +82,7 @@ def compras_view(request):
     }
     return render(request, "compras/page.html", contex)
 
+@login_required
 def contacto_view(request):
     '''
     "request" es el objeto que reprenta la petición que se realiza 
@@ -88,7 +140,7 @@ def contacto_view(request):
             print(form.errors)
 
     else:
-        form = ContactoForm()
+        form = ContactoForm()#se crea una instancia vacía
 
     return render(request, "contacto/page.html", {"form": form})
 
@@ -106,7 +158,7 @@ def contacto_manual_view(request):
 
         if not nombre:
             errores["nombre_error"] = "El nombre es obligatorio"
-        elif len(nombre) > 5:
+        elif len(nombre) > 150:
             errores["nombre_error"] = "El nombre no puede superar los 150 caracteres"
 
         if not email:
@@ -121,7 +173,6 @@ def contacto_manual_view(request):
             errores["mensaje_error"] = "El mensaje es obligatorio"
 
         if not errores:
-            print("Acá")
             contex = {
                     "nombre" : nombre,
                     "email" :  email,

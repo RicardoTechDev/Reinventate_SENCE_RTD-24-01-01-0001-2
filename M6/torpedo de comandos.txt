@@ -86,4 +86,18 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 
+
+
+===================================================================================================
+MIGRACIONES --> Modelos --> Base de datos
+
+* Crear una migración:  python manage.py makemigrations 
+
+* Aplicar la migración: python manage.py migrate
 				
+* Ver migraciones: python manage.py showmigrations
+
+
+* Creación de un super usuario: python manage.py createsuperuser
+* Una vez creado el superusuario, se inicia el servidor y se accede a http://127.0.0.1:8000/admin/
+
