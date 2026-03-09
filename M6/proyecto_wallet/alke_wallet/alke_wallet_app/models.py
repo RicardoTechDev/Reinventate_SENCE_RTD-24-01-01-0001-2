@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 class Wallet(models.Model):
@@ -7,7 +8,19 @@ class Wallet(models.Model):
     Wallet o Billetera del usuario esto es 1 a 1
     - Un usuario tiene una sola wallet
     """
-    pass
+    usuario = models.OneToOneField(
+        settings.AUTH_USER_MODEL, 
+        related_name="wallet", 
+        on_delete=models.CASCADE
+        )
+    saldo       = models.IntegerField()
+    activa      = models.BooleanField(default=True)
+    moneda      = models.CharField(max_length=3, default='CLP')
+    created_at  = models.DateTimeField(auto_now_add=True) #Se guarda al crear un registro
+    updated_at  = models.DateTimeField(auto_now=True)#Se actualiza en cada save()
+
+    def __str__(self):
+        return f"Wallet({self.usuario})"
 
 
 class CuentaBancaria(models.Model):
@@ -15,7 +28,31 @@ class CuentaBancaria(models.Model):
     Cuentas bancarías propias asociadas al usuario (1 a N)
     recargar saldo, retiros, transferencias (según su lógica)
     """
-    pass
+    TIPO_CUENTA_CHOICES = [
+    ("CTACTE", "Cuenta Corriente"),
+    ("CTAAHORRO", "Cuenta Ahorro"),
+    ("VISTA", "Cuenta Vista"),
+    ("RUT", "Cuenta Rut"),
+    ("OTRA", "Otro tipo de cuenta"),
+    ]
+
+    usuario = models.OneToOneField(
+        settings.AUTH_USER_MODEL, 
+        related_name="cuenta_bancaria", 
+        on_delete=models.CASCADE
+        )
+    numero =
+    tipo = models.CharField(
+        max_length=10,
+        choices=TIPO_CUENTA_CHOICES,
+        default="OTRA",
+    )
+    banco =
+    rut_titular =
+    correo_notificacion=
+    activa =
+    created_at  = "DD-MM-YYYY"
+    updated_at  = "DD-MM-YYYY"
 
 
 class Tarjeta(models.Model):
