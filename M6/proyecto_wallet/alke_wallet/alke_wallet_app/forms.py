@@ -1,5 +1,6 @@
 #Importación del módulo de formularios de Django
 from django import forms
+from .models import CuentaBancaria
 
 #Creación de una nueva clase  que hereda de forms.Form
 #"forms"  trae las clases para dedfinir formularios y campos con validación
@@ -37,3 +38,14 @@ class ContactoForm(forms.Form):
         },
         widget=forms.Textarea(attrs={"class": "form-control", "rows": 4, "placeholder": "Escribe aquí tu mensaje..."})
     )
+
+
+
+class CuentaBancariaForm(forms.ModelForm):
+    class Meta:
+        model = CuentaBancaria
+        fields = [
+            "alias", "banco", "tipo", "numero",
+            "rut_titular", "email_notificacion",
+            "es_principal", "verificada",
+        ]

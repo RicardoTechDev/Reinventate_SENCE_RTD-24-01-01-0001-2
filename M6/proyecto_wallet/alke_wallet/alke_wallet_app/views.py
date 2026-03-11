@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from datetime import date
-from .forms import ContactoForm
+from .forms import ContactoForm, CuentaBancariaForm
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.contrib.auth.decorators import login_required
+from .models import Wallet, CuentaBancaria
 
 
 # Create your views here.
@@ -61,17 +62,25 @@ def signup_view(request):
 
 @login_required
 def home_view(request):
-    contex = {
-        "titulo_principal" : "Home Alke Wallet",
+    # 1) Asegurar que el usuario tenga wallet (si no existe, se crea)
+    wallet, creada = Wallet.objects.get_or_create(
+        usuario=request.user,
+        defaults={"saldo": 0, "activa": True, "moneda": "CLP"}
+    )
+
+    # (opcional) si quieres mostrar mensaje solo cuando se crea
+    # if creada:
+    #     messages.success(request, "Wallet creada automáticamente")
+
+    context = {
+        "titulo_principal": "Home Alke Wallet",
         "titulo_card": "Bienvenido a mi proyecto web con Django",
-        "usuario": {
-            'first_name': 'Luis', 
-            'last_name': 'Salazar'
-            },
         "hoy": date.today(),
+        "wallet": wallet,
         "noticias": ["Django es rápido", "Django es extremadamente facil", "Templates son útiles"],
     }
-    return render(request, "home/page.html", contex)
+
+    return render(request, "home/page.html", context)
 
 
 def compras_view(request):
@@ -81,6 +90,7 @@ def compras_view(request):
         "total_compras": "768.475"
     }
     return render(request, "compras/page.html", contex)
+
 
 @login_required
 def contacto_view(request):
@@ -185,3 +195,76 @@ def contacto_manual_view(request):
         "valores" : valores
     }
     return render(request, "contacto_manual/page.html", context)
+
+
+
+@login_required
+def cuentas_bancarias_list_view(request):
+    """
+    Lista las cuentas bancarias asociadas al usuario.
+    """
+    cuentas = CuentaBancaria.objects.filter(usuario=request.user).order_by("-created_at")
+    return render(request, "wallet/cuentas_list.html", {"cuentas": cuentas})
+
+
+@login_required
+def cuenta_bancaria_create_view(request):
+    """
+    Crea una cuenta bancaria asociada al usuario logueado.
+    """
+    if request.method == "POST":
+        form = CuentaBancariaForm(request.POST)
+        if form.is_valid():
+            cuenta = form.save(commit=False)
+            cuenta.usuario = request.user  # Asegura dueño
+            cuenta.save()
+
+            # (opcional) si se marca como principal, desmarcar otras
+            if cuenta.es_principal:
+                CuentaBancaria.objects.filter(usuario=request.user).exclude(id=cuenta.id).update(es_principal=False)
+
+            messages.success(request, "Cuenta bancaria creada")
+            return redirect("wallet:cuentas_list")
+    else:
+        form = CuentaBancariaForm()
+
+    return render(request, "wallet/cuenta_form.html", {"form": form, "modo": "crear"})
+
+
+@login_required
+def cuenta_bancaria_update_view(request, cuenta_id):
+    """
+    Edita una cuenta bancaria del usuario.
+    get_object_or_404 + filtro por usuario => evita editar cuentas ajenas.
+    """
+    cuenta = get_object_or_404(CuentaBancaria, id=cuenta_id, usuario=request.user)
+
+    if request.method == "POST":
+        form = CuentaBancariaForm(request.POST, instance=cuenta)
+        if form.is_valid():
+            cuenta = form.save()
+
+            if cuenta.es_principal:
+                CuentaBancaria.objects.filter(usuario=request.user).exclude(id=cuenta.id).update(es_principal=False)
+
+            messages.success(request, "Cuenta bancaria actualizada")
+            return redirect("wallet:cuentas_list")
+    else:
+        form = CuentaBancariaForm(instance=cuenta)
+
+    return render(request, "wallet/cuenta_form.html", {"form": form, "modo": "editar", "cuenta": cuenta})
+
+
+@login_required
+def cuenta_bancaria_delete_view(request, cuenta_id):
+    """
+    Elimina una cuenta bancaria del usuario.
+    """
+    cuenta = get_object_or_404(CuentaBancaria, id=cuenta_id, usuario=request.user)
+
+    if request.method == "POST":
+        cuenta.delete()
+        messages.success(request, "Cuenta bancaria eliminada")
+        return redirect("wallet:cuentas_list")
+
+    return render(request, "wallet/cuenta_confirm_delete.html", {"cuenta": cuenta})
