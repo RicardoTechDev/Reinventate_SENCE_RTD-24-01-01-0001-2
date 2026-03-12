@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Author, Book, Publisher
+from django.db.models import Count
 
 #----------------------
 # Author
@@ -18,7 +19,7 @@ def authors_list(request):
 # Publisher
 #----------------------
 def publishers_list(request):
-    publishers = Publisher.objects.values("id", "name")#SELECT * FROM Authors
+    publishers = Publisher.objects.annotate(total_libros=Count("books")).values("id", "name", "total_libros")#SELECT * FROM Authors
     publishers = list(publishers)
     contexto = {
         "publishers" : publishers,
