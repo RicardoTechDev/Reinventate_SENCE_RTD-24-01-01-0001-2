@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import authors_list, publishers_list
+from .views import authors_list, publishers_list, book_list
 
 urlpatterns = [
     #Autores
@@ -9,4 +9,5 @@ urlpatterns = [
     path("publishres/", publishers_list, name="publishers_list"),
 
     #Libros
+    path("books/", book_list, name="book_list"),
 ]
