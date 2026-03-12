@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Author, Book, Publisher
 
+#----------------------
+# Author
+#----------------------
 def authors_list(request):
     autores = Author.objects.all()#SELECT * FROM Authors
 
@@ -11,8 +14,11 @@ def authors_list(request):
     return render(request, "authors_list.html", contexto)
 
 
+#----------------------
+# Publisher
+#----------------------
 def publishers_list(request):
-    publishers = Publisher.objects.all()#SELECT * FROM Authors
+    publishers = Publisher.objects.values("id", "name")#SELECT * FROM Authors
     publishers = list(publishers)
     contexto = {
         "publishers" : publishers,

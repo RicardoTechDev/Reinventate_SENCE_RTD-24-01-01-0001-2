@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Publicaciones{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/tabulator-tables@6.4.0/dist/css/tabulator.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="mt-3 d-flex justify-content-end">
+    <a class="btn btn-success" href="">
+        <i class="bi bi-person-plus-fill"></i> Nueva Publicación
+    </a>
+</div>
+<div class="card mt-4">
+    <div class="card-header bg-info">
+        Publicaciones
+    </div>
+    <div class="card-body">
+        <div id="tabla-publishers"></div>
+        {{ publishers|json_script:"publishers-data"  }}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.4.0/dist/js/tabulator.min.js"></script>
+<script>
+    const publishersData = JSON.parse(document.getElementById("publishers-data").textContent);
+
+    new Tabulator("#tabla-publishers", {
+    data: publishersData,
+    layout: "fitColumns",
+    responsiveLayout: "collapse",
+    pagination: true,
+    paginationSize: 10,
+    placeholder: "No hay publishers.",
+
+    columns: [
+        { title: "ID", field: "id", width: 90, sorter: "number" },
+        { title: "Nombre", field: "name", sorter: "string" },
+        {
+            title: "Acciones",
+            hozAlign: "right",
+            width: 220,
+            formatter: function (cell) {
+                const row = cell.getRow().getData();
+                return `
+        <div class="d-inline-flex gap-2">
+            <a class="btn btn-sm btn-outline-primary" href="">Editar</a>
+            <a class="btn btn-sm btn-outline-danger" href="">Eliminar</a>
+        </div>
+    `;
+            }
+        }
+    ],
+});
+
+</script>
+
+{% endblock %}
