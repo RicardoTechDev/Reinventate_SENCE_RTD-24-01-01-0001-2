@@ -1,0 +1,18 @@
+from django import forms
+from .models import Author, Book, Publisher
+
+
+class AuthorForm(forms.ModelForm):
+    name = forms.CharField(
+        label = "Nombre", #texto que se usará al mostrar el nombre del campo en el template
+        max_length = 255, #Validación, no permite más de 150 caracteres
+        error_messages={
+            "required": "El campo nombre es obligatorio.",
+            "max_length": "El nombre no puede superar los 255 caracteres"
+        },
+        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "Nombre del autor"})
+        )
+
+    class Meta:
+        model = Author
+        fields = ["name"]

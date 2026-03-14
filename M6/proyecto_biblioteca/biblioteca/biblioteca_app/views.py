@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Author, Book, Publisher
 from django.db.models import Count
+from .forms import AuthorForm
+from django.http import Http404
 
 #----------------------
 # Author
@@ -13,6 +15,48 @@ def authors_list(request):
     } 
 
     return render(request, "authors_list.html", contexto)
+
+
+def authors_create(request):
+    if request.method == "POST":#Si es POST
+        form = AuthorForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("authors_list")
+        
+    else:
+        form = AuthorForm()#se crea una instancia vacía
+
+    return render(request, "authors_form.html", {"form": form, "modo": "crear"})
+
+
+def authors_update(request, pk):
+    autor = get_object_or_404(Author, id=pk)
+
+    #! Versión manual o más extensa que get_object_or_404
+    # try:
+    #     autor = Author.objects.get(id=pk)
+    # except Author.DoesNotExist:
+    #     raise Http404("Autor no encontrado")
+
+    if request.method == "POST":#Si es POST
+        form = AuthorForm(request.POST, instance = autor)
+
+        if form.is_valid():
+            form.save()
+            return redirect("authors_list")
+        
+    else:
+        form = AuthorForm(instance = autor)
+
+    return render(request, "authors_form.html", {"form": form, "modo": "editar"})
+
+
+def authors_delete(request, pk):
+    autor = get_object_or_404(Author, id=pk)
+    autor.delete()
+
 
 
 #----------------------
