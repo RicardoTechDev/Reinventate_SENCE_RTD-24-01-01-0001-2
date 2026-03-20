@@ -16,3 +16,18 @@ class AuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = ["name"]
+
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ["title", "author"]
+        widgets= {
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder' : 'Ingrese el título del libro'
+            }),
+            'author': forms.Select(attrs={
+                'class': 'form-select'
+            }),
+        }

@@ -1,12 +1,22 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Author, Book, Publisher
 from django.db.models import Count
-from .forms import AuthorForm
+from .forms import AuthorForm, BookForm
 from django.http import Http404
+from django.contrib import messages
+
+#DOCUMENTACIÓN: https://docs.djangoproject.com/en/6.0/topics/http/decorators/
+from django.views.decorators.http import require_POST
+
+# Alternativa a require_POST: 
+from django.views.decorators.http import require_http_methods
+# Ejemplo decorador: @require_http_methods(["GET", "POST"])
+
 
 #----------------------
 # Author
 #----------------------
+@require_http_methods(["GET"])
 def authors_list(request):
     autores = Author.objects.all().order_by("name")#SELECT * FROM Authors
 
@@ -17,13 +27,18 @@ def authors_list(request):
     return render(request, "authors_list.html", contexto)
 
 
+@require_http_methods(["GET", "POST"])
 def authors_create(request):
     if request.method == "POST":#Si es POST
         form = AuthorForm(request.POST)
 
         if form.is_valid():
             form.save()
+            messages.success(request, "Autor creado de manera correcta")
             return redirect("authors_list")
+
+        else:
+            messages.error(request, "No fue posible crear el autor")
         
     else:
         form = AuthorForm()#se crea una instancia vacía
@@ -31,6 +46,7 @@ def authors_create(request):
     return render(request, "authors_form.html", {"form": form, "modo": "crear"})
 
 
+@require_http_methods(["GET", "POST"])
 def authors_update(request, pk):
     autor = get_object_or_404(Author, id=pk)
 
@@ -45,7 +61,11 @@ def authors_update(request, pk):
 
         if form.is_valid():
             form.save()
+            messages.success(request, "Autor actualizado de manera correcta")
             return redirect("authors_list")
+        
+        else:
+            messages.error(request, "No fue posible actualizar el autor")
         
     else:
         form = AuthorForm(instance = autor)
@@ -53,11 +73,16 @@ def authors_update(request, pk):
     return render(request, "authors_form.html", {"form": form, "modo": "editar"})
 
 
+@require_POST
 def authors_delete(request, pk):
-    autor = get_object_or_404(Author, id=pk)
-    autor.delete()
-
-
+    try:
+        autor = get_object_or_404(Author, id=pk)
+        autor.delete()
+        messages.success(request, "Autor eliminado correctamente")
+    except Exception:
+        messages.error(request, "Ocurrió un error al intentar eliminar el autor")
+    
+    return redirect("authors_list")
 
 #----------------------
 # Publisher
@@ -125,9 +150,76 @@ def book_list(request):
     '''
 
     libros = Book.objects.select_related("author").order_by("title")
+    form = BookForm()
 
     contexto = {
         "libros" : libros,
+        "form"   : form,
+        'modo': 'crear',
     } 
 
     return render(request, "books_list.html", contexto)
+
+
+@require_http_methods(["POST"])
+def books_create(request):
+    if request.method == "POST":#Si es POST
+        form = BookForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Libro creado de manera correcta")
+            return redirect("book_list")
+
+        messages.error(request, "No fue posible crear el libro")        
+        libros = Book.objects.select_related("author").order_by("title")
+        context = {
+            'libros' : libros,
+            'modo': 'crear',
+            'form': form,
+        }
+        return render(request, "books_list.html", context)
+    
+@require_http_methods(["GET", "POST"])
+def books_update(request, pk):
+    libro = get_object_or_404(Book, id=pk)
+    libros = Book.objects.select_related("author").order_by("title")
+
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=libro)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Libro actualizado de manera correcta")
+            return redirect("book_list")
+        
+        messages.error(request, "No fue posible actuializar el libro")        
+        
+        context = {
+            'libros' : libros,
+            'modo': 'editar',
+            'form': form,
+            'abrir_modal': True
+        }
+        return render(request, "books_list.html", context)
+    
+    form = BookForm(instance=libro)
+    context = {
+            'libros' : libros,
+            'modo': 'editar',
+            'form': form,
+            'abrir_modal': True
+        }
+    return render(request, "books_list.html", context)
+
+
+@require_POST
+def books_delete(request, pk):
+    try:
+        libro = get_object_or_404(Book, id=pk)
+        libro.delete()
+        messages.success(request, "Libro eliminado correctamente")
+    except Exception:
+        messages.error(request, "Ocurrió un error al intentar eliminar el libro")
+    
+    return redirect("book_list")
