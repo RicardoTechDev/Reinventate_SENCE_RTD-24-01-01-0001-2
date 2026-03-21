@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="mt-3 d-flex justify-content-end">
-    <a class="btn btn-success" href="">
+    <a class="btn btn-success" href="" data-bs-toggle="modal" data-bs-target="#publisherModal">
         <i class="bi bi-arrow-up-square-fill"></i> Nueva Publicación
     </a>
 </div>
@@ -20,12 +20,65 @@
         {{ publishers|json_script:"publishers-data" }}
     </div>
 </div>
+
+<div class="modal fade" id="publisherModal" tabindex="-1" aria-labelledby="publisherModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form  action="{% if modo == 'crear' %}{% url 'publisher_create' %}{% endif %}"method="POST" novalidate>
+                {% csrf_token %}
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="publisherModalLabel">
+                {% if modo == "crear" %}
+                    Nueva Publicación
+                {% else %}
+                    Editar Publicación
+                {% endif %}
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="{{ form.name.id_for_label }}" class="form-label">Nombre Publicación</label>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                        <div class="text-danger small">
+                            {{ form.name.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                    <div class="mb-3">
+                    <label for="{{ form.books.id_for_label }}" class="form-label">Libros</label>
+                    <div class="form-text">Puedes selecionar uno o varios libros (Ctrl + Click).</div>
+                    {{ form.books }}
+                    {% if form.books.errors %}
+                        <div class="text-danger small">
+                            {{ form.books.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.4.0/dist/js/tabulator.min.js"></script>
 <script>
     const publishersData = JSON.parse(document.getElementById("publishers-data").textContent);
+
+    const editUrlBase = "{% url 'publisher_update' 0 %}";
+    const deleteUrlBase = "{% url 'publisher_delete' 0 %}";
+
+    function urlConId(baseUrl, id) {
+        return baseUrl.replace("/0/", `/${id}/`);
+    }
 
     new Tabulator("#tabla-publishers", {
     data: publishersData,
@@ -45,10 +98,21 @@
             width: 220,
             formatter: function (cell) {
                 const row = cell.getRow().getData();
+                const editUrl = urlConId(editUrlBase, row.id);
+                const deleteUrl = urlConId(deleteUrlBase, row.id);  
                 return `
         <div class="d-inline-flex gap-2">
-            <a class="btn btn-sm btn-outline-primary" href=""><i class="bi bi-pencil-square"></i></a>
-            <a class="btn btn-sm btn-outline-danger" href=""><i class="bi bi-trash3-fill"></i></a>
+            <a 
+            class="btn btn-sm btn-outline-primary" 
+            href="${editUrl}"
+            ><i class="bi bi-pencil-square"></i></a>
+            <a 
+            class="btn btn-sm btn-outline-danger delete-btn" 
+            href=""
+            data-url = "${deleteUrl}"
+            data-text ="Se eliminará ${row.name}. Esta acción no se puede revertir"
+            data-title = "¿Eliminar La Publicación?"
+            ><i class="bi bi-trash3-fill"></i></a>
         </div>
     `;
             }
@@ -57,5 +121,14 @@
 });
 
 </script>
+
+{% if abrir_modal %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const publisherModal = new bootstrap.Modal(document.getElementById("publisherModal"));
+        publisherModal.show();
+    });
+</script>
+{% endif %}
 
 {% endblock %}

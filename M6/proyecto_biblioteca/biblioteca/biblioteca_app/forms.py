@@ -31,3 +31,17 @@ class BookForm(forms.ModelForm):
                 'class': 'form-select'
             }),
         }
+
+class PublisherForm(forms.ModelForm):
+    class Meta:
+        model = Publisher
+        fields = ["name", "books"]
+        widgets= {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder' : 'Ingrese el nombre de la publicación'
+            }),
+            'books': forms.SelectMultiple(attrs={
+                'class': 'form-select',
+            }),
+        }

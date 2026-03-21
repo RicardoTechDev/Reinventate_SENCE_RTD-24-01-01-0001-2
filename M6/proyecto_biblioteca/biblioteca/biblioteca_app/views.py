@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Author, Book, Publisher
 from django.db.models import Count
-from .forms import AuthorForm, BookForm
+from .forms import AuthorForm, BookForm, PublisherForm
 from django.http import Http404
 from django.contrib import messages
 
@@ -90,12 +90,84 @@ def authors_delete(request, pk):
 def publishers_list(request):
     publishers = Publisher.objects.annotate(total_libros=Count("books")).values("id", "name", "total_libros")#SELECT * FROM Authors
     publishers = list(publishers)
+    form = PublisherForm()
+
     contexto = {
         "publishers" : publishers,
+        "form"   : form,
+        'modo': 'crear',
     } 
 
     return render(request, "publishers_list.html", contexto)
 
+
+
+@require_http_methods(["POST"])
+def publisher_create(request):
+    if request.method == "POST":
+        form = PublisherForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Publicación creada de manera correcta")
+            return redirect("publishers_list")
+
+        messages.error(request, "No fue posible crear la publicación")    
+
+        publishers = Publisher.objects.annotate(total_libros=Count("books")).values("id", "name", "total_libros")#SELECT * FROM Authors
+        publishers = list(publishers)
+        context = {
+            'publishers' : publishers,
+            'modo': 'crear',
+            'form': form,
+        }
+        return render(request, "publishers_list.html", context)
+
+
+@require_http_methods(["GET", "POST"])
+def publisher_update(request, pk):
+    publicacion = get_object_or_404(Publisher, id=pk)
+    publishers = Publisher.objects.annotate(total_libros=Count("books")).values("id", "name", "total_libros")#SELECT * FROM Authors
+    publishers = list(publishers)
+
+
+    if request.method == "POST":
+        form = PublisherForm(request.POST, instance=publicacion)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Publicación actualizada de manera correcta")
+            return redirect("publishers_list")
+
+        messages.error(request, "No fue posible actualizar la publicación")    
+        context = {
+            'publishers' : publishers,
+            'modo': 'editar',
+            'form': form,
+            'abrir_modal': True
+            }
+        return render(request, "publishers_list.html", context)
+
+    form = PublisherForm(instance=publicacion)
+    context = {
+        'publishers' : publishers,
+        'modo': 'editar',
+        'form': form,
+        'abrir_modal': True
+    }
+    return render(request, "publishers_list.html", context)
+
+
+@require_POST
+def publisher_delete(request, pk):
+    try:
+        publicacion = get_object_or_404(Publisher, id=pk)
+        publicacion.delete()
+        messages.success(request, "Publicación eliminada correctamente")
+    except Exception:
+        messages.error(request, "Ocurrió un error al intentar eliminar la publicación")
+    
+    return redirect("publishers_list")
 
 #----------------------
 # Book
@@ -223,3 +295,4 @@ def books_delete(request, pk):
         messages.error(request, "Ocurrió un error al intentar eliminar el libro")
     
     return redirect("book_list")
+
